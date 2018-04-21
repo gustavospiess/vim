@@ -3,7 +3,7 @@ import vim
 from abc import ABCMeta
 from abc import abstractmethod
 
-from time import sleep
+from random import randint
 
 buf = vim.current.buffer
 
@@ -30,16 +30,16 @@ class Motion:
     
     @staticmethod
     def north_west(position): return Motion.north(Motion.west(position))
-    
+        
     @staticmethod
     def north_east(position): return Motion.north(Motion.east(position))
-    
+        
     @staticmethod
     def south_west(position): return Motion.south(Motion.west(position))
-    
+     
     @staticmethod
     def south_east(position): return Motion.south(Motion.east(position))
-
+    
     @staticmethod
     def motions(): return (Motion.north, Motion.west, Motion.south, Motion.east)
     def motions_diag(): return (Motion.north, Motion.west, Motion.south, Motion.east, 
@@ -55,15 +55,11 @@ class Cell(metaclass=ABCMeta):
     @abstractmethod
     def consist(self): pass
 
-class Field(metaclass=ABCMeta):
-    @abstractmethod
-    def consist_all(self): pass
+class GhostCell(Cell):
+    def consist(self): raise Exception()
 
-    @abstractmethod
-    def get_cell(self, position): pass
-
-    @abstractmethod
-    def apply(self): pass
+    @staticmethod
+    def get(): return NormalCell(None,None,False)
 
 class NormalCell(Cell):
     def consist(self):
@@ -81,7 +77,22 @@ class NormalCell(Cell):
             if count == 3:
                 self.new_status = True
 
-ghost_cell = NormalCell(None,None,False)
+class RandomCell(NormalCell):
+    def consist(self):
+        if randint(0,999):
+            super(RandomCell, self).consist()
+        else:
+            self.new_status = not self.new_status
+
+class Field(metaclass=ABCMeta):
+    @abstractmethod
+    def consist_all(self): pass
+
+    @abstractmethod
+    def get_cell(self, position): pass
+    
+    @abstractmethod
+    def apply(self): pass
 
 class GridField(Field):
     def __init__(self, grid):
@@ -120,7 +131,7 @@ class GridField(Field):
         before_border = x < 0 or y < 0
         after_border  = (x >= len(self.grid)) or (y >= len(self.grid[x]))
         if after_border or before_border:
-            return ghost_cell
+            return GhostCell.get()
         else:
             return self.grid[x][y]
 
@@ -149,6 +160,11 @@ class BufField(GridField):
     def get_instance_cell(self, position, status):
         return NormalCell(self, position, status=='X')
 
-a = BufField(buf)
-a.consist_all()
-a.apply()
+class RandomBufField(BufField):
+    def get_instance_cell(self, position, status):
+        return RandomCell(self, position, status=='X')
+
+if buf.name.split('.')[-1] == 'life':
+    a = RandomBufField(buf)
+    a.consist_all()
+    a.apply()
