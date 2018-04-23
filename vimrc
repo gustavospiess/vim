@@ -100,6 +100,8 @@
     nnoremap <leader>nT :NERDTree<cr>
     nnoremap <leader>nt :NERDTree<cr>
     nnoremap <leader>NT :NERDTree<cr>
+    
+    noremap <esc> :w<cr><esc>
 "  -----------------------------
 "
 "         python testes
