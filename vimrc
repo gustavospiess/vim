@@ -15,20 +15,25 @@
 "            leaders
 " (you migth want to change this)
 "  -----------------------------
-    let maplocalleader = "-"
-    let mapleader = "ç"
+    let maplocalleader = '-'
+    let mapleader = 'ç'
 "  -----------------------------
 "
 "             Style
 "  -----------------------------
     set number
     set ruler
-    set tabstop=4
-    set shiftwidth=4
+    set wrap
+    set linebreak
+    set nolist
     set smarttab
     set expandtab
+    set tabstop=4
+    set shiftwidth=4
     set laststatus=2
     set foldmethod=indent
+    set encoding=utf-8
+    set fileencoding=utf-8
 "  -----------------------------
 "
 "            Vundle
@@ -89,9 +94,14 @@
 "      remaps
 "  -----------------------------
     nnoremap <space> za
+    nnoremap <leader><leader> :
+    nnoremap <leader>nt :NERDTree<cr>
+    nnoremap <leader>nT :NERDTree<cr>
+    nnoremap <leader>nt :NERDTree<cr>
+    nnoremap <leader>NT :NERDTree<cr>
 "  -----------------------------
 "
 "         python testes
 "  -----------------------------
-    nnoremap <leader>p :py3file
+    "nnoremap <leader>p :py3file
 "  -----------------------------
