@@ -165,6 +165,6 @@ class RandomBufField(BufField):
         return RandomCell(self, position, status=='X')
 
 if buf.name.split('.')[-1] == 'life':
-    a = RandomBufField(buf)
+    a = BufField(buf)
     a.consist_all()
     a.apply()

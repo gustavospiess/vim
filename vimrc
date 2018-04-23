@@ -86,12 +86,14 @@
     nnoremap <leader>sv :source $MYVIMRC<cr>
 "  -----------------------------
 "
-"      remaps
+"             remaps
 "  -----------------------------
     nnoremap <space> za
+    nnoremap <C-w>t <C-w>T
 "  -----------------------------
 "
 "         python testes
 "  -----------------------------
     nnoremap <leader>p :py3file
+    nnoremap - :py3file life.py<cr>
 "  -----------------------------
