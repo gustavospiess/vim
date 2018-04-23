@@ -106,5 +106,5 @@
 "
 "         python testes
 "  -----------------------------
-    "nnoremap <leader>p :py3file
+    nnoremap <leader>p :py3file
 "  -----------------------------
