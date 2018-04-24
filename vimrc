@@ -19,7 +19,7 @@
     let mapleader = 'ç'
 "  -----------------------------
 "
-"             Style
+"             Flags
 "  -----------------------------
     set number
     set ruler
@@ -35,6 +35,7 @@
     set encoding=utf-8
     set fileencoding=utf-8
     set hlsearch
+    set ignorecase
 "  -----------------------------
 "
 "            Vundle
@@ -101,6 +102,8 @@
     nnoremap <leader>nT :NERDTree<cr>
     nnoremap <leader>nt :NERDTree<cr>
     nnoremap <leader>NT :NERDTree<cr>
+    nnoremap n nzz
+    nnoremap N Nz
     
     noremap <esc> :w<cr><esc>
 "  -----------------------------
