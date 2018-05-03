@@ -1,11 +1,7 @@
-import vim
-
 from abc import ABCMeta
 from abc import abstractmethod
 
 from random import randint
-
-buf = vim.current.buffer
 
 class Motion:
     @staticmethod
@@ -56,12 +52,21 @@ class Cell(metaclass=ABCMeta):
     def consist(self): pass
 
 class GhostCell(Cell):
-    def consist(self): raise Exception()
+    def __init__(self):
+        super(GhostCell, self).__init__(None, None, False)
 
     @staticmethod
-    def get(): return NormalCell(None,None,False)
+    def get(): return GhostCell()
+
+    def consist(self): raise Exception()
 
 class NormalCell(Cell):
+    def __init__(self, field, position, status, rules='3/23'):
+        super(NormalCell, self).__init__(field, position, status)
+        rules_split = rules.split('/')
+        self.born = [int(char) for char in rules_split[0]]
+        self.keep = [int(char) for char in rules_split[1]]
+
     def consist(self):
         count = 0
         neiborhood = [ self.field.get_cell(direct(self.position)) for direct in Motion.motions_diag() ]
@@ -69,12 +74,10 @@ class NormalCell(Cell):
             if cel.status:
                 count += 1
         if self.status:
-            if count < 2:
-                self.new_status = False
-            if count > 3:
+            if count not in self.keep:
                 self.new_status = False
         else:
-            if count == 3:
+            if count in self.born:
                 self.new_status = True
 
 class RandomCell(NormalCell):
@@ -85,6 +88,7 @@ class RandomCell(NormalCell):
             self.new_status = not self.new_status
 
 class Field(metaclass=ABCMeta):
+
     @abstractmethod
     def consist_all(self): pass
 
@@ -92,6 +96,19 @@ class Field(metaclass=ABCMeta):
     def get_cell(self, position): pass
     
     @abstractmethod
+    def apply(self): pass
+
+class GhostField(Field):
+    def __init__(self):
+        pass
+
+    def get():
+        return GhostField()
+
+    def consist_all(self): pass
+
+    def get_cell(self, position): return GhostCell.get()
+
     def apply(self): pass
 
 class GridField(Field):
@@ -138,33 +155,3 @@ class GridField(Field):
     @abstractmethod
     def get_instance_cell(self, position, status): pass
 
-class BufField(GridField):
-    def __init__(self, buf):
-        for i in range(len(buf)):
-            buf[i] = buf[i][1:]
-        super(BufField, self).__init__(buf)
-        self.buf = buf
-
-    def apply(self):
-        count = 0
-        for line in self.grid:
-            txt = '|'
-            for cell in line:
-                if cell.new_status:
-                    txt += 'X'
-                else:
-                    txt += '.'
-            self.buf[count] = txt
-            count += 1
-
-    def get_instance_cell(self, position, status):
-        return NormalCell(self, position, status=='X')
-
-class RandomBufField(BufField):
-    def get_instance_cell(self, position, status):
-        return RandomCell(self, position, status=='X')
-
-if buf.name.split('.')[-1] == 'life':
-    a = BufField(buf)
-    a.consist_all()
-    a.apply()

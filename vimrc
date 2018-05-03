@@ -97,19 +97,28 @@
 "  -----------------------------
     nnoremap <space> za
     nnoremap <C-w>t <C-w>T
+
     nnoremap <leader><leader> :
     nnoremap <leader>nt :NERDTree<cr>
     nnoremap <leader>nT :NERDTree<cr>
     nnoremap <leader>nt :NERDTree<cr>
     nnoremap <leader>NT :NERDTree<cr>
+
     nnoremap n nzz
-    nnoremap N Nz
+    nnoremap N Nzz
+    nnoremap * *zz
+    nnoremap # #zz
+    nnoremap g* g*zz
+    nnoremap g# g#zz
+    nnoremap gn gnzz
+    snoremap <cr> <cr>zz
     
-    noremap <esc> :w<cr><esc>
+    inoremap <esc> <esc>:w<cr>
+    nnoremap <esc> :w<cr><esc>
 "  -----------------------------
 "
 "         python testes
 "  -----------------------------
     nnoremap <leader>p :py3file
-    nnoremap - :py3file life.py<cr>
+    nnoremap - :py3file life/vim_life.py<cr>
 "  -----------------------------
