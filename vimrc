@@ -36,6 +36,7 @@
     set fileencoding=utf-8
     set hlsearch
     set ignorecase
+    set syntax on
 "  -----------------------------
 "
 "            Vundle
@@ -52,7 +53,7 @@
     
     " style for status row
     Plugin 'vim-airline/vim-airline'
-    
+
     call vundle#end()
     filetype plugin indent on
 "  -----------------------------
@@ -98,13 +99,14 @@
     nnoremap <space> za
     nnoremap <leader><leader> :
     nnoremap <leader>nt :NERDTree<cr>
-    nnoremap <leader>nT :NERDTree<cr>
-    nnoremap <leader>nt :NERDTree<cr>
-    nnoremap <leader>NT :NERDTree<cr>
     nnoremap n nzz
-    nnoremap N Nz
-    
-    noremap <esc> :w<cr><esc>
+    nnoremap N Nzz
+
+    nnoremap <Left> i<space><esc>
+    nnoremap <Right> a<space><esc>
+    nnoremap <Up> O<esc>
+    nnoremap <Down> o<esc>
+
 "  -----------------------------
 "
 "         python testes
