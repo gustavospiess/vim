@@ -36,6 +36,11 @@
     set fileencoding=utf-8
     set hlsearch
     set ignorecase
+
+    if has("gui_running")
+        syntax on
+        set guifont=Consolas:h12:cANSI:qDRAFT
+    endif
 "  -----------------------------
 "
 "            Vundle
@@ -52,7 +57,7 @@
     
     " style for status row
     Plugin 'vim-airline/vim-airline'
-    
+
     call vundle#end()
     filetype plugin indent on
 "  -----------------------------
@@ -93,18 +98,35 @@
     nnoremap <leader>sv :source $MYVIMRC<cr>
 "  -----------------------------
 "
-"      remaps
+"             remaps
 "  -----------------------------
     nnoremap <space> za
     nnoremap <leader><leader> :
     nnoremap <leader>nt :NERDTree<cr>
-    nnoremap <leader>nT :NERDTree<cr>
-    nnoremap <leader>nt :NERDTree<cr>
-    nnoremap <leader>NT :NERDTree<cr>
     nnoremap n nzz
-    nnoremap N Nz
-    
-    noremap <esc> :w<cr><esc>
+    nnoremap N Nzz
+
+    nnoremap <Left> i<space><esc>
+    nnoremap <Right> a<space><esc>
+    nnoremap <Up> O<esc>
+    nnoremap <Down> o<esc>
+ 
+    nnoremap [[ :let @" = @/<cr>?{<cr>:let @/ = @"<cr>
+    nnoremap [] :let @" = @/<cr>?}<CR>:let @/ = @"<cr>
+    nnoremap ][ :let @" = @/<cr>/}<cr>:let @/ = @"<cr>
+    nnoremap ]] :let @" = @/<cr>/{<cr>:let @/ = @"<cr>
+"  -----------------------------
+"
+"        register share
+"  -----------------------------
+    nnoremap y "+y
+    nnoremap Y "+Y
+    nnoremap p "+p
+    nnoremap P "+P
+    nnoremap d "+d
+    nnoremap D "+D
+    nnoremap c "+c
+    nnoremap C "+C
 "  -----------------------------
 "
 "         python testes
