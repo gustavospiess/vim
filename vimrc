@@ -43,6 +43,19 @@
     endif
 "  -----------------------------
 "
+"           Spell
+"  -----------------------------
+    if !empty(glob("~/.vim/bundle/vim-spell-pt-br/spell/pt.utf-8.add"))
+        " for unix-like separator
+        set spellfile="~/.vim/bundle/vim-spell-pt-br/spell/pt.utf-8.add"
+    endif
+    if !empty(glob("~\.vim\bundle\vim-spell-pt-br\spell\pt.utf-8.add"))
+        " for windows like separator
+        set spellfile="~\.vim\bundle\vim-spell-pt-br\spell\pt.utf-8.add"
+    endif
+    set spelllang=pt_br,en_us
+"  -----------------------------
+"
 "            Vundle
 "  -----------------------------
     set rtp+=~/.vim/bundle/Vundle.vim
@@ -59,6 +72,12 @@
 
     " indentation object
     Plugin 'michaeljsmith/vim-indent-object'
+
+    " surround
+    Plugin 'tpope/vim-surround'
+
+    " pt_br spelling
+    Bundle 'mateusbraga/vim-spell-pt-br'
 
     call vundle#end()
     filetype plugin indent on
@@ -137,9 +156,4 @@
     vnoremap D "+D
     vnoremap c "+c
     vnoremap C "+C
-"  -----------------------------
-"
-"         python testes
-"  -----------------------------
-    nnoremap <leader>p :py3file
 "  -----------------------------
