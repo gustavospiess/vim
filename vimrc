@@ -41,7 +41,10 @@
         syntax on
         set guifont=Consolas:h12:cANSI:qDRAFT
     endif
-
+"  -----------------------------
+"
+"           Spell
+"  -----------------------------
     if !empty(glob("~/.vim/bundle/vim-spell-pt-br/spell/pt.utf-8.add"))
         " for unix-like separator
         set spellfile="~/.vim/bundle/vim-spell-pt-br/spell/pt.utf-8.add"
@@ -154,10 +157,3 @@
     vnoremap c "+c
     vnoremap C "+C
 "  -----------------------------
-"
-"         python testes
-"  -----------------------------
-    nnoremap <leader>p :py3file
-"  -----------------------------
-
-
