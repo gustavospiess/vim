@@ -54,9 +54,11 @@
     " navigation tree
     Plugin 'scrooloose/nerdtree'
     
-    
     " style for status row
     Plugin 'vim-airline/vim-airline'
+
+    " indentation object
+    Plugin 'michaeljsmith/vim-indent-object'
 
     call vundle#end()
     filetype plugin indent on
@@ -127,6 +129,14 @@
     nnoremap D "+D
     nnoremap c "+c
     nnoremap C "+C
+    vnoremap y "+y
+    vnoremap Y "+Y
+    vnoremap p "+p
+    vnoremap P "+P
+    vnoremap d "+d
+    vnoremap D "+D
+    vnoremap c "+c
+    vnoremap C "+C
 "  -----------------------------
 "
 "         python testes
