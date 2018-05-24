@@ -148,6 +148,10 @@
     nnoremap D "+D
     nnoremap c "+c
     nnoremap C "+C
+    nnoremap x "+x
+    nnoremap X "+X
+    nnoremap r "+r
+
     vnoremap y "+y
     vnoremap Y "+Y
     vnoremap p "+p
@@ -156,4 +160,7 @@
     vnoremap D "+D
     vnoremap c "+c
     vnoremap C "+C
+    vnoremap x "+x
+    vnoremap X "+X
+    vnoremap r "+r
 "  -----------------------------
