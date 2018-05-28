@@ -37,6 +37,9 @@
     set hlsearch
     set ignorecase
 
+    let g:bookmark_annotation_sign = '>>'
+    let g:bookmark_sign = '>'
+
     if has("gui_running")
         syntax on
         set guifont=Consolas:h12:cANSI:qDRAFT
@@ -53,7 +56,23 @@
         " for windows like separator
         set spellfile="~\.vim\bundle\vim-spell-pt-br\spell\pt.utf-8.add"
     endif
+
+    " Spell check applied to pt_br and en_us
     set spelllang=pt_br,en_us
+
+    " Spell check for any Text file (*.txt)
+    autocmd filetype Text setlocal spell
+
+    "çsp to toggle spell check
+    nnoremap <leader>sp :setlocal spell!<cr>
+
+    inoremap <C-x><C-=> <C-o>j<C-o>z=<C-o>k
+"  -----------------------------
+"
+"      new  file config
+"  -----------------------------
+    " files with no type Will be considered text
+    autocmd BufEnter * if &filetype == "" | setlocal filetype=text | endif
 "  -----------------------------
 "
 "            Vundle
@@ -78,6 +97,9 @@
 
     " pt_br spelling
     Bundle 'mateusbraga/vim-spell-pt-br'
+
+    " Bookmarcks
+    Plugin 'MattesGroeger/vim-bookmarks'
 
     call vundle#end()
     filetype plugin indent on
@@ -126,6 +148,10 @@
     nnoremap <leader>nt :NERDTree<cr>
     nnoremap n nzz
     nnoremap N Nzz
+    nnoremap * *zz
+    nnoremap # #zz
+
+    snoremap <cr> <cr>zz
 
     nnoremap <Left> i<space><esc>
     nnoremap <Right> a<space><esc>
