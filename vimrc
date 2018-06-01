@@ -37,6 +37,9 @@
     set hlsearch
     set ignorecase
 
+    set autoread
+    set autowrite
+
     let g:bookmark_annotation_sign = '>>'
     let g:bookmark_sign = '>'
 
