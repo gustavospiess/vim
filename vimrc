@@ -193,3 +193,10 @@
     vnoremap X "+X
     vnoremap r "+r
 "  -----------------------------
+"
+"           IDE tools
+"  -----------------------------
+    autocmd Filetype java set makeprg=javac\ %
+    set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
+    nnoremap <F9> :make<Return>:copen<Return>
+"  -----------------------------
