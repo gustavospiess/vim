@@ -104,6 +104,9 @@
     " Bookmarcks
     Plugin 'MattesGroeger/vim-bookmarks'
 
+    " Table mode
+    Plugin 'dhruvasagar/vim-table-mode'
+
     call vundle#end()
     filetype plugin indent on
 "  -----------------------------
@@ -147,7 +150,7 @@
 "             remaps
 "  -----------------------------
     nnoremap <space> za
-    nnoremap <leader><leader> :
+    nnoremap ; :
     nnoremap <leader>nt :NERDTree<cr>
     nnoremap n nzz
     nnoremap N Nzz
@@ -196,7 +199,10 @@
 "
 "           IDE tools
 "  -----------------------------
-    autocmd Filetype java set makeprg=javac\ %
-    set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
-    nnoremap <F9> :make<Return>:copen<Return>
+    " java
+        autocmd Filetype java set makeprg=javac\ %
+        autocmd Filetype java set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
+        autocmd Filetype java noremap <F9> :make<Return>:copen<Return>
+        autocmd Filetype java noreabbrev psvm public static void main(String[] args) {<c-o>==<c-o>o}<c-o>O
+        autocmd Filetype java noreabbrev sout System.out.println();<c-o>h
 "  -----------------------------
