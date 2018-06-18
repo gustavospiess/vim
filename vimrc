@@ -39,7 +39,7 @@
     set hlsearch
     set ignorecase
 
-    set formatoptions=tcq2
+    set formatoptions=tcq2n
     set textwidth=80
 
     set autoread
@@ -221,10 +221,4 @@
         autocmd Filetype java noremap <F9> :make<Return>:copen<Return>
         autocmd Filetype java inoreabbrev psvm public static void main(String[] args) {<c-o>==<c-o>o}<c-o>O
         autocmd Filetype java inoreabbrev sout System.out.println();<c-o>h
-        autocmd Filetype java inoreabbrev sout System.out.println();<c-o>h
-        "autocmd Filetype java inoremap " ""
-        "autocmd Filetype java inoremap ' ''
-        "autocmd Filetype java inoremap ( ()
-        "autocmd Filetype java inoremap [ []
-        "autocmd Filetype java inoremap { {}
 "  -----------------------------
