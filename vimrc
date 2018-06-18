@@ -31,15 +31,33 @@
     set tabstop=4
     set shiftwidth=4
     set laststatus=2
+
     set foldmethod=indent
     set encoding=utf-8
     set fileencoding=utf-8
+
     set hlsearch
     set ignorecase
+
+    set formatoptions=tcq2n
+    set textwidth=80
 
     set autoread
     set autowrite
 
+    if !empty(glob("~/.vim/vimrc"))
+        " for unix-like separator
+        set backupdir=~/.vim/backup//
+        set directory=~/.vim/swap//
+        set undodir=~/.vim/undo//
+    endif
+    if !empty(glob("~\.vim\vimrc"))
+        " for windows like separator
+        set backupdir=~\.vim\backup\\
+        set directory=~\.vim\swap\\
+        set undodir=~\.vim\undo\\
+    source ~\.vim\vimrc
+    endif
     let g:bookmark_annotation_sign = '>>'
     let g:bookmark_sign = '>'
 
@@ -159,11 +177,6 @@
 
     snoremap <cr> <cr>zz
 
-    nnoremap <Left> i<space><esc>
-    nnoremap <Right> a<space><esc>
-    nnoremap <Up> O<esc>
-    nnoremap <Down> o<esc>
- 
     nnoremap [[ :let @" = @/<cr>?{<cr>:let @/ = @"<cr>
     nnoremap [] :let @" = @/<cr>?}<CR>:let @/ = @"<cr>
     nnoremap ][ :let @" = @/<cr>/}<cr>:let @/ = @"<cr>
@@ -183,6 +196,8 @@
     nnoremap x "+x
     nnoremap X "+X
     nnoremap r "+r
+    nnoremap s "+s
+    nnoremap S "+S
 
     vnoremap y "+y
     vnoremap Y "+Y
@@ -195,6 +210,7 @@
     vnoremap x "+x
     vnoremap X "+X
     vnoremap r "+r
+    vnoremap s "+s
 "  -----------------------------
 "
 "           IDE tools
@@ -203,6 +219,6 @@
         autocmd Filetype java set makeprg=javac\ %
         autocmd Filetype java set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
         autocmd Filetype java noremap <F9> :make<Return>:copen<Return>
-        autocmd Filetype java noreabbrev psvm public static void main(String[] args) {<c-o>==<c-o>o}<c-o>O
-        autocmd Filetype java noreabbrev sout System.out.println();<c-o>h
+        autocmd Filetype java inoreabbrev psvm public static void main(String[] args) {<c-o>==<c-o>o}<c-o>O
+        autocmd Filetype java inoreabbrev sout System.out.println();<c-o>h
 "  -----------------------------
