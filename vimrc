@@ -74,9 +74,6 @@
     " plugin manager
     Plugin 'VundleVim/Vundle.vim'
     
-    " navigation tree
-    "Plugin 'scrooloose/nerdtree'
-
     " panels for projects
     Plugin 'mihaifm/vimpanel'
     
@@ -100,6 +97,9 @@
 
     " dbext
     Plugin 'vim-scripts/dbext.vim'
+
+    " linter
+    Plugin 'w0rp/ale'
 
     call vundle#end()
     filetype plugin indent on
@@ -137,13 +137,11 @@
 " ------------------------------------------------------------------------- "
     nnoremap <space> za
     nnoremap ; :
-    "nnoremap <leader>nt :NERDTree<cr>
+    nnoremap <leader><leader> :<C-f>
     nnoremap n nzz
     nnoremap N Nzz
     nnoremap * *zz
     nnoremap # #zz
-
-    snoremap <cr> <cr>zz
 
     nnoremap [[ :let @" = @/<cr>?{<cr>:let @/ = @"<cr>
     nnoremap [] :let @" = @/<cr>?}<CR>:let @/ = @"<cr>
@@ -223,7 +221,7 @@
     inoremap <C-x><C-=> <C-o>j<C-o>z=<C-o>k
 " ------------------------------------------------------------------------- "
 "
-"                                    dbext
+"                                    Undo
 " ------------------------------------------------------------------------- "
-    let g:dbext_default_ORA_cmd_header = "set linesize 10000\n"
+    inoremap <cr> <C-g>u<cr>
 " ------------------------------------------------------------------------- "
