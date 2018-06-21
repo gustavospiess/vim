@@ -12,15 +12,14 @@
 "  Feel free to use, distribute or sell it;
 "  
 "
-"            leaders
-" (you migth want to change this)
-"  -----------------------------
+"                   leaders (you migth want to change this)
+" ------------------------------------------------------------------------- "
     let maplocalleader = '-'
     let mapleader = 'ç'
-"  -----------------------------
+" ------------------------------------------------------------------------- "
 "
-"             Flags
-"  -----------------------------
+"                                    Flags
+" ------------------------------------------------------------------------- "
     set number
     set ruler
     set wrap
@@ -40,7 +39,6 @@
     set ignorecase
 
     set formatoptions=tcq2n
-    set textwidth=80
 
     set autoread
     set autowrite
@@ -60,52 +58,24 @@
     endif
     let g:bookmark_annotation_sign = '>>'
     let g:bookmark_sign = '>'
-
-    if has("gui_running")
-        syntax on
-        set guifont=Consolas:h12:cANSI:qDRAFT
-    endif
-"  -----------------------------
+" ------------------------------------------------------------------------- "
 "
-"           Spell
-"  -----------------------------
-    if !empty(glob("~/.vim/bundle/vim-spell-pt-br/spell/pt.utf-8.add"))
-        " for unix-like separator
-        set spellfile="~/.vim/bundle/vim-spell-pt-br/spell/pt.utf-8.add"
-    endif
-    if !empty(glob("~\.vim\bundle\vim-spell-pt-br\spell\pt.utf-8.add"))
-        " for windows like separator
-        set spellfile="~\.vim\bundle\vim-spell-pt-br\spell\pt.utf-8.add"
-    endif
-
-    " Spell check applied to pt_br and en_us
-    set spelllang=pt_br,en_us
-
-    " Spell check for any Text file (*.txt)
-    autocmd filetype Text setlocal spell
-
-    "çsp to toggle spell check
-    nnoremap <leader>sp :setlocal spell!<cr>
-
-    inoremap <C-x><C-=> <C-o>j<C-o>z=<C-o>k
-"  -----------------------------
-"
-"      new  file config
-"  -----------------------------
+"                               new  file config
+" ------------------------------------------------------------------------- "
     " files with no type Will be considered text
     autocmd BufEnter * if &filetype == "" | setlocal filetype=text | endif
-"  -----------------------------
+" ------------------------------------------------------------------------- "
 "
-"            Vundle
-"  -----------------------------
+"                                    Vundle
+" ------------------------------------------------------------------------- "
     set rtp+=~/.vim/bundle/Vundle.vim
     call vundle#begin()
     
-    " pluggin manager
+    " plugin manager
     Plugin 'VundleVim/Vundle.vim'
     
-    " navigation tree
-    Plugin 'scrooloose/nerdtree'
+    " panels for projects
+    Plugin 'mihaifm/vimpanel'
     
     " style for status row
     Plugin 'vim-airline/vim-airline'
@@ -113,38 +83,36 @@
     " indentation object
     Plugin 'michaeljsmith/vim-indent-object'
 
-    " surround
+    " surroun
     Plugin 'tpope/vim-surround'
 
     " pt_br spelling
     Bundle 'mateusbraga/vim-spell-pt-br'
 
-    " Bookmarcks
+    " bookmarks
     Plugin 'MattesGroeger/vim-bookmarks'
 
-    " Table mode
+    " table mode
     Plugin 'dhruvasagar/vim-table-mode'
+
+    " dbext
+    Plugin 'vim-scripts/dbext.vim'
+
+    " linter
+    Plugin 'w0rp/ale'
 
     call vundle#end()
     filetype plugin indent on
-"  -----------------------------
+" ------------------------------------------------------------------------- "
 "
-"       NERDTree configs
-"  -----------------------------
-    augroup NT
-    autocmd!
-    " Open NERDTree when start
-    autocmd vimenter * NERDTree
-    " close whent NERDTree is the only tab
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-    augroup END
-
-    " nt to open nerd tree
-    nnoremap <leader>nt :NERDTree<cr>
-"  -----------------------------
+"                                  vimpanel
+" ------------------------------------------------------------------------- "
+    let g:VimpanelCompact=1
+    let g:VimpanelWinSize=30
+" ------------------------------------------------------------------------- "
 "
-"     Case sensitiveess remap
-"  -----------------------------
+"                           Case sensitiveess remap
+" ------------------------------------------------------------------------- "
     cnoreabbrev W! w!
     cnoreabbrev Q! q!
     cnoreabbrev Qall! qall!
@@ -155,36 +123,34 @@
     cnoreabbrev W w
     cnoreabbrev Q q
     cnoreabbrev Qall qall
-"  -----------------------------
+" ------------------------------------------------------------------------- "
 "
-"      .vimrc quik open
-"  -----------------------------
+"                               .vimrc quik open
+" ------------------------------------------------------------------------- "
     "ev for edit vimrc
     nnoremap <leader>ev :split $MYVIMRC<cr><C-w>T
     "sv for source vimrc
     nnoremap <leader>sv :source $MYVIMRC<cr>
-"  -----------------------------
+" ------------------------------------------------------------------------- "
 "
-"             remaps
-"  -----------------------------
+"                                    remaps
+" ------------------------------------------------------------------------- "
     nnoremap <space> za
     nnoremap ; :
-    nnoremap <leader>nt :NERDTree<cr>
+    nnoremap <leader><leader> :<C-f>
     nnoremap n nzz
     nnoremap N Nzz
     nnoremap * *zz
     nnoremap # #zz
 
-    snoremap <cr> <cr>zz
-
     nnoremap [[ :let @" = @/<cr>?{<cr>:let @/ = @"<cr>
     nnoremap [] :let @" = @/<cr>?}<CR>:let @/ = @"<cr>
     nnoremap ][ :let @" = @/<cr>/}<cr>:let @/ = @"<cr>
     nnoremap ]] :let @" = @/<cr>/{<cr>:let @/ = @"<cr>
-"  -----------------------------
+" ------------------------------------------------------------------------- "
 "
-"        register share
-"  -----------------------------
+"                                register share
+" ------------------------------------------------------------------------- "
     nnoremap y "+y
     nnoremap Y "+Y
     nnoremap p "+p
@@ -211,14 +177,51 @@
     vnoremap X "+X
     vnoremap r "+r
     vnoremap s "+s
-"  -----------------------------
+" ------------------------------------------------------------------------- "
 "
-"           IDE tools
-"  -----------------------------
+"                                  IDE tools
+" ------------------------------------------------------------------------- "
     " java
         autocmd Filetype java set makeprg=javac\ %
         autocmd Filetype java set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
         autocmd Filetype java noremap <F9> :make<Return>:copen<Return>
         autocmd Filetype java inoreabbrev psvm public static void main(String[] args) {<c-o>==<c-o>o}<c-o>O
         autocmd Filetype java inoreabbrev sout System.out.println();<c-o>h
-"  -----------------------------
+" ------------------------------------------------------------------------- "
+"
+"                                     GUI
+" ------------------------------------------------------------------------- "
+    if has("gui_running")
+        syntax on
+        set guifont=Consolas:h12:cANSI:qDRAFT
+        simalt ~x
+    endif
+" ------------------------------------------------------------------------- "
+"
+"                                    Spell
+" ------------------------------------------------------------------------- "
+    if !empty(glob("~/.vim/bundle/vim-spell-pt-br/spell/pt.utf-8.add"))
+        " for unix-like separator
+        set spellfile="~/.vim/bundle/vim-spell-pt-br/spell/pt.utf-8.add"
+    endif
+    if !empty(glob("~\.vim\bundle\vim-spell-pt-br\spell\pt.utf-8.add"))
+        " for windows like separator
+        set spellfile="~\.vim\bundle\vim-spell-pt-br\spell\pt.utf-8.add"
+    endif
+
+    " Spell check applied to pt_br and en_us
+    set spelllang=pt_br,en_us
+
+    " Spell check for any Text file (*.txt)
+    autocmd filetype Text setlocal spell
+
+    "çsp to toggle spell check
+    nnoremap <leader>sp :setlocal spell!<cr>
+
+    inoremap <C-x><C-=> <C-o>j<C-o>z=<C-o>k
+" ------------------------------------------------------------------------- "
+"
+"                                    Undo
+" ------------------------------------------------------------------------- "
+    inoremap <cr> <C-g>u<cr>
+" ------------------------------------------------------------------------- "
