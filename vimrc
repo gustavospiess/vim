@@ -12,15 +12,14 @@
 "  Feel free to use, distribute or sell it;
 "  
 "
-"            leaders
-" (you migth want to change this)
-"  -----------------------------
+"                   leaders (you migth want to change this)
+" ------------------------------------------------------------------------- "
     let maplocalleader = '-'
     let mapleader = 'ç'
-"  -----------------------------
+" ------------------------------------------------------------------------- "
 "
-"             Flags
-"  -----------------------------
+"                                     Flags
+" ------------------------------------------------------------------------- "
     set number
     set ruler
     set wrap
@@ -31,30 +30,35 @@
     set tabstop=4
     set shiftwidth=4
     set laststatus=2
+
     set foldmethod=indent
     set encoding=utf-8
     set fileencoding=utf-8
+
     set hlsearch
     set ignorecase
 
-    if has("gui_running")
-        syntax on
-        set lines=60 columns=108 linespace=0
-        set guifont=consolas:h16,DejaVu_Sans_Mono:h16
-    endif
-
     colorscheme desert
-"  -----------------------------
+" ------------------------------------------------------------------------- "
 "
-"           Spell
-"  -----------------------------
-    if !empty(glob("~/.vim/bundle/vim-spell-pt-br/spell/pt.utf-8.add"))
+"                                     Spell
+" ------------------------------------------------------------------------- "
+    set formatoptions=tcq2n
+
+    set autoread
+    set autowrite
+
+    if !empty(glob("~/.vim/vimrc"))
         " for unix-like separator
-        set spellfile="~/.vim/bundle/vim-spell-pt-br/spell/pt.utf-8.add"
+        set backupdir=~/.vim/backup//
+        set directory=~/.vim/swap//
+        set undodir=~/.vim/undo//
     endif
-    if !empty(glob("~\.vim\bundle\vim-spell-pt-br\spell\pt.utf-8.add"))
+    if !empty(glob("~\.vim\vimrc"))
         " for windows like separator
-        set spellfile="~\.vim\bundle\vim-spell-pt-br\spell\pt.utf-8.add"
+        set backupdir=~\.vim\backup\\
+        set directory=~\.vim\swap\\
+        set undodir=~\.vim\undo\\
     endif
 
     nnoremap <leader>sp :setlocal spell!<cr>
@@ -64,18 +68,27 @@
         autocmd!
         autocmd FileType text setlocal spell
     augroup END
-"  -----------------------------
+
+    let g:bookmark_annotation_sign = '>>'
+    let g:bookmark_sign = '>'
+" ------------------------------------------------------------------------- "
 "
-"            Vundle
-"  -----------------------------
+"                               new  file config
+" ------------------------------------------------------------------------- "
+    " files with no type Will be considered text
+    autocmd BufEnter * if &filetype == "" | setlocal filetype=text | endif
+" ------------------------------------------------------------------------- "
+"
+"                                    Vundle
+" ------------------------------------------------------------------------- "
     set rtp+=~/.vim/bundle/Vundle.vim
     call vundle#begin()
     
-    " pluggin manager
+    " plugin manager
     Plugin 'VundleVim/Vundle.vim'
     
-    " navigation tree
-    Plugin 'scrooloose/nerdtree'
+    " panels for projects
+    Plugin 'mihaifm/vimpanel'
     
     " style for status row
     Plugin 'vim-airline/vim-airline'
@@ -83,33 +96,36 @@
     " indentation object
     Plugin 'michaeljsmith/vim-indent-object'
 
-    " surround
+    " surroun
     Plugin 'tpope/vim-surround'
 
     " pt_br spelling
     Bundle 'mateusbraga/vim-spell-pt-br'
 
+    " bookmarks
+    Plugin 'MattesGroeger/vim-bookmarks'
+
+    " table mode
+    Plugin 'dhruvasagar/vim-table-mode'
+
+    " dbext
+    Plugin 'vim-scripts/dbext.vim'
+
+    " linter
+    Plugin 'w0rp/ale'
+
     call vundle#end()
     filetype plugin indent on
-"  -----------------------------
+" ------------------------------------------------------------------------- "
 "
-"       NERDTree configs
-"  -----------------------------
-    augroup NT
-        autocmd!
-        " Open NERDTree when start
-        autocmd vimenter * NERDTree
-        " close whent NERDTree is the only tab
-        autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-        " close 
-    augroup END
-
-    " nt to open nerd tree
-    nnoremap <leader>nt :NERDTree<cr>
-"  -----------------------------
+"                                  vimpanel
+" ------------------------------------------------------------------------- "
+    let g:VimpanelCompact=1
+    let g:VimpanelWinSize=30
+" ------------------------------------------------------------------------- "
 "
-"     Case sensitiveess remap
-"  -----------------------------
+"                           Case sensitiveess remap
+" ------------------------------------------------------------------------- "
     cnoreabbrev W! w!
     cnoreabbrev Q! q!
     cnoreabbrev Qall! qall!
@@ -120,37 +136,35 @@
     cnoreabbrev W w
     cnoreabbrev Q q
     cnoreabbrev Qall qall
-"  -----------------------------
+" ------------------------------------------------------------------------- "
 "
-"      .vimrc quik open
-"  -----------------------------
+"                               .vimrc quik open
+" ------------------------------------------------------------------------- "
     "ev for edit vimrc
     nnoremap <leader>ev :split $MYVIMRC<cr><C-w>T
     "sv for source vimrc
     nnoremap <leader>sv :source $MYVIMRC<cr>
-"  -----------------------------
+" ------------------------------------------------------------------------- "
 "
-"             remaps
-"  -----------------------------
+"                                    remaps
+" ------------------------------------------------------------------------- "
     nnoremap <space> za
-    nnoremap <leader><leader> :
-    nnoremap <leader>nt :NERDTree<cr>
+    nnoremap ; :
+    nnoremap <leader><leader> :<C-f>
     nnoremap n nzz
     nnoremap N Nzz
 
-    nnoremap <Left> i<space><esc>
-    nnoremap <Right> a<space><esc>
-    nnoremap <Up> O<esc>
-    nnoremap <Down> o<esc>
- 
+    nnoremap * *zz
+    nnoremap # #zz
+
     nnoremap [[ :let @" = @/<cr>?{<cr>:let @/ = @"<cr>
     nnoremap [] :let @" = @/<cr>?}<CR>:let @/ = @"<cr>
     nnoremap ][ :let @" = @/<cr>/}<cr>:let @/ = @"<cr>
     nnoremap ]] :let @" = @/<cr>/{<cr>:let @/ = @"<cr>
-"  -----------------------------
+" ------------------------------------------------------------------------- "
 "
-"        register share
-"  -----------------------------
+"                                register share
+" ------------------------------------------------------------------------- "
     nnoremap y "+y
     nnoremap Y "+Y
     nnoremap p "+p
@@ -159,6 +173,12 @@
     nnoremap D "+D
     nnoremap c "+c
     nnoremap C "+C
+    nnoremap x "+x
+    nnoremap X "+X
+    nnoremap r "+r
+    nnoremap s "+s
+    nnoremap S "+S
+
     vnoremap y "+y
     vnoremap Y "+Y
     vnoremap p "+p
@@ -167,4 +187,55 @@
     vnoremap D "+D
     vnoremap c "+c
     vnoremap C "+C
-"  -----------------------------
+    vnoremap x "+x
+    vnoremap X "+X
+    vnoremap r "+r
+    vnoremap s "+s
+" ------------------------------------------------------------------------- "
+"
+"                                  IDE tools
+" ------------------------------------------------------------------------- "
+    " java
+        autocmd Filetype java set makeprg=javac\ %
+        autocmd Filetype java set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
+        autocmd Filetype java noremap <F9> :make<Return>:copen<Return>
+        autocmd Filetype java inoreabbrev psvm public static void main(String[] args) {<c-o>==<c-o>o}<c-o>O
+        autocmd Filetype java inoreabbrev sout System.out.println();<c-o>h
+" ------------------------------------------------------------------------- "
+"
+"                                     GUI
+" ------------------------------------------------------------------------- "
+    if has("gui_running")
+        syntax on
+        set guifont=Consolas:h17:cANSI:qDRAFT
+        set lines=60 columns=108 linespace=0
+    endif
+" ------------------------------------------------------------------------- "
+"
+"                                    Spell
+" ------------------------------------------------------------------------- "
+    if !empty(glob("~/.vim/bundle/vim-spell-pt-br/spell/pt.utf-8.add"))
+        " for unix-like separator
+        set spellfile="~/.vim/bundle/vim-spell-pt-br/spell/pt.utf-8.add"
+    endif
+    if !empty(glob("~\.vim\bundle\vim-spell-pt-br\spell\pt.utf-8.add"))
+        " for windows like separator
+        set spellfile="~\.vim\bundle\vim-spell-pt-br\spell\pt.utf-8.add"
+    endif
+
+    " Spell check applied to pt_br and en_us
+    set spelllang=pt_br,en_us
+
+    " Spell check for any Text file (*.txt)
+    autocmd filetype Text setlocal spell
+
+    "çsp to toggle spell check
+    nnoremap <leader>sp :setlocal spell!<cr>
+
+    inoremap <C-x><C-=> <C-o>j<C-o>z=<C-o>k
+" ------------------------------------------------------------------------- "
+"
+"                                    Undo
+" ------------------------------------------------------------------------- "
+    inoremap <cr> <C-g>u<cr>
+" ------------------------------------------------------------------------- "
