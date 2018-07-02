@@ -63,7 +63,7 @@
 "                               new  file config
 " ------------------------------------------------------------------------- "
     " files with no type Will be considered text
-    autocmd BufEnter * if &filetype == "" | setlocal filetype=text | endif
+    autocmd BufEnter * if &filetype == "" | setlocal filetype=Text | endif
 " ------------------------------------------------------------------------- "
 "
 "                                    Vundle
@@ -128,25 +128,26 @@
 "                               .vimrc quik open
 " ------------------------------------------------------------------------- "
     "ev for edit vimrc
-    nnoremap <leader>ev :split $MYVIMRC<cr><C-w>T
+    nnoremap <leader>ev :silent split $MYVIMRC<cr><C-w>T
     "sv for source vimrc
-    nnoremap <leader>sv :source $MYVIMRC<cr>
+    nnoremap <leader>sv :silent source $MYVIMRC<cr>
 " ------------------------------------------------------------------------- "
 "
 "                                    remaps
 " ------------------------------------------------------------------------- "
-    nnoremap <space> za
-    nnoremap ; :
-    nnoremap <leader><leader> :<C-f>
-    nnoremap n nzz
-    nnoremap N Nzz
-    nnoremap * *zz
-    nnoremap # #zz
+    " Search centralized 
+        nnoremap n nzz
+        nnoremap N Nzz
+        nnoremap * *zz
+        nnoremap # #zz
+    "
 
-    nnoremap [[ :let @" = @/<cr>?{<cr>:let @/ = @"<cr>
-    nnoremap [] :let @" = @/<cr>?}<CR>:let @/ = @"<cr>
-    nnoremap ][ :let @" = @/<cr>/}<cr>:let @/ = @"<cr>
-    nnoremap ]] :let @" = @/<cr>/{<cr>:let @/ = @"<cr>
+    " block navigation
+        nnoremap [[ :silent let @" = @/<cr>?{<cr>:silent let @/ = @"<cr>
+        nnoremap [] :silent let @" = @/<cr>?}<cr>:silent let @/ = @"<cr>
+        nnoremap ][ :silent let @" = @/<cr>/}<cr>:silent let @/ = @"<cr>
+        nnoremap ]] :silent let @" = @/<cr>/{<cr>:silent let @/ = @"<cr>
+    "
 " ------------------------------------------------------------------------- "
 "
 "                                register share
@@ -184,7 +185,7 @@
     " java
         autocmd Filetype java set makeprg=javac\ %
         autocmd Filetype java set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
-        autocmd Filetype java noremap <F9> :make<Return>:copen<Return>
+        autocmd Filetype java noremap <F9> :silent make<Return>:silent copen<Return>
         autocmd Filetype java inoreabbrev psvm public static void main(String[] args) {<c-o>==<c-o>o}<c-o>O
         autocmd Filetype java inoreabbrev sout System.out.println();<c-o>h
 " ------------------------------------------------------------------------- "
@@ -214,9 +215,10 @@
 
     " Spell check for any Text file (*.txt)
     autocmd filetype Text setlocal spell
+	autocmd filetype Scratch setlocal spell
 
     "çsp to toggle spell check
-    nnoremap <leader>sp :setlocal spell!<cr>
+    nnoremap <leader>sp :silent setlocal spell!<cr>
 
     inoremap <C-x><C-=> <C-o>j<C-o>z=<C-o>k
 " ------------------------------------------------------------------------- "
@@ -224,4 +226,12 @@
 "                                    Undo
 " ------------------------------------------------------------------------- "
     inoremap <cr> <C-g>u<cr>
+" ------------------------------------------------------------------------- "
+"
+"                                   Scratch
+" ------------------------------------------------------------------------- "
+    nnoremap <leader>tf :setlocal buftype=<cr>
+    nnoremap <leader>ts :setlocal buftype=nofile<cr>
+    nnoremap <leader>nf <C-w>n
+    nnoremap <leader>ns <C-w>n:setlocal buftype=nofile<cr>
 " ------------------------------------------------------------------------- "
