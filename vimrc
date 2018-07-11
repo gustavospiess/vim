@@ -18,7 +18,7 @@
     let mapleader = 'ç'
 " ------------------------------------------------------------------------- "
 "
-"                                    Flags
+"                                     Flags
 " ------------------------------------------------------------------------- "
     set number
     set ruler
@@ -38,6 +38,11 @@
     set hlsearch
     set ignorecase
 
+    colorscheme desert
+" ------------------------------------------------------------------------- "
+"
+"                                     Spell
+" ------------------------------------------------------------------------- "
     set formatoptions=tcq2n
 
     set autoread
@@ -54,8 +59,16 @@
         set backupdir=~\.vim\backup\\
         set directory=~\.vim\swap\\
         set undodir=~\.vim\undo\\
-    source ~\.vim\vimrc
     endif
+
+    nnoremap <leader>sp :setlocal spell!<cr>
+    set spelllang=pt_br,en_us
+
+    augroup SP
+        autocmd!
+        autocmd FileType text setlocal spell
+    augroup END
+
     let g:bookmark_annotation_sign = '>>'
     let g:bookmark_sign = '>'
 " ------------------------------------------------------------------------- "
@@ -194,8 +207,8 @@
 " ------------------------------------------------------------------------- "
     if has("gui_running")
         syntax on
-        set guifont=Consolas:h12:cANSI:qDRAFT
-        simalt ~x
+        set guifont=Consolas:h17:cANSI:qDRAFT
+        set lines=60 columns=108 linespace=0
     endif
 " ------------------------------------------------------------------------- "
 "
