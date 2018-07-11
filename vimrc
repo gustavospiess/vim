@@ -196,7 +196,7 @@
 "                                  IDE tools
 " ------------------------------------------------------------------------- "
     " java
-        autocmd Filetype java set makeprg=javac\ %
+        autocmd Filetype java set makeprg=javac\ %:h/../**/*.java
         autocmd Filetype java set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
         autocmd Filetype java noremap <F9> :silent make<Return>:silent copen<Return>
         autocmd Filetype java inoreabbrev psvm public static void main(String[] args) {<c-o>==<c-o>o}<c-o>O
