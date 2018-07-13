@@ -48,6 +48,8 @@
     set autoread
     set autowrite
 
+    set nocompatible
+
     if !empty(glob("~/.vim/vimrc"))
         " for unix-like separator
         set backupdir=~/.vim/backup//
@@ -71,6 +73,8 @@
 
     let g:bookmark_annotation_sign = '>>'
     let g:bookmark_sign = '>'
+
+    set grepprg=git\ grep
 " ------------------------------------------------------------------------- "
 "
 "                               new  file config
@@ -113,6 +117,16 @@
 
     " linter
     Plugin 'w0rp/ale'
+    
+    "Git integration
+    Plugin 'tpope/vim-fugitive'
+    
+    "  Organization and note taking
+        "Wiki
+        Plugin 'vimwiki/vimwiki'
+
+        "Calendar
+        Plugin 'mattn/calendar-vim'
 
     call vundle#end()
     filetype plugin indent on
@@ -207,7 +221,7 @@
 " ------------------------------------------------------------------------- "
     if has("gui_running")
         syntax on
-        set guifont=Consolas:h17:cANSI:qDRAFT
+        set guifont=Consolas:h12:cANSI:qDRAFT
         set lines=60 columns=108 linespace=0
     endif
 " ------------------------------------------------------------------------- "
