@@ -22,8 +22,12 @@
 " ------------------------------------------------------------------------- "
     set number
     set ruler
+
     set wrap
     set linebreak
+    set breakindent
+    set showbreak=____
+
     set nolist
     set smarttab
     set expandtab
@@ -127,6 +131,14 @@
 
         "Calendar
         Plugin 'mattn/calendar-vim'
+
+    " Git
+    Plugin 'tpope/vim-fugitive'
+
+    " Wiki and calendar
+    Plugin 'vimwiki/vimwiki'
+    Plugin 'mattn/calendar-vim'
+
 
     call vundle#end()
     filetype plugin indent on
