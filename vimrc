@@ -122,9 +122,6 @@
     " linter
     Plugin 'w0rp/ale'
     
-    "Git integration
-    Plugin 'tpope/vim-fugitive'
-    
     "Organization and note taking
         "Wiki
         Plugin 'vimwiki/vimwiki'
@@ -134,11 +131,6 @@
 
     " Git
     Plugin 'tpope/vim-fugitive'
-
-    " Wiki and calendar
-    Plugin 'vimwiki/vimwiki'
-    Plugin 'mattn/calendar-vim'
-
 
     call vundle#end()
     filetype plugin indent on
