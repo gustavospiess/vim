@@ -48,6 +48,9 @@
     set autoread
     set autowrite
 
+    set nocompatible
+    set nobackup "no backup
+
     if !empty(glob("~/.vim/vimrc"))
         " for unix-like separator
         set backupdir=~/.vim/backup//
@@ -64,19 +67,20 @@
     nnoremap <leader>sp :setlocal spell!<cr>
     set spelllang=pt_br,en_us
 
-    augroup SP
-        autocmd!
-        autocmd FileType text setlocal spell
-    augroup END
-
     let g:bookmark_annotation_sign = '>>'
     let g:bookmark_sign = '>'
+
+    set grepprg=git\ grep
+    colorscheme desert
 " ------------------------------------------------------------------------- "
 "
 "                               new  file config
 " ------------------------------------------------------------------------- "
     " files with no type Will be considered text
-    autocmd BufEnter * if &filetype == "" | setlocal filetype=Text | endif
+    augroup INI
+        autocmd!
+        autocmd BufEnter * if &filetype == "" | setlocal filetype=Text | endif
+    augroup END
 " ------------------------------------------------------------------------- "
 "
 "                                    Vundle
@@ -113,6 +117,16 @@
 
     " linter
     Plugin 'w0rp/ale'
+    
+    "Git integration
+    Plugin 'tpope/vim-fugitive'
+    
+    "Organization and note taking
+        "Wiki
+        Plugin 'vimwiki/vimwiki'
+
+        "Calendar
+        Plugin 'mattn/calendar-vim'
 
     call vundle#end()
     filetype plugin indent on
@@ -195,19 +209,34 @@
 "
 "                                  IDE tools
 " ------------------------------------------------------------------------- "
-    " java
-        autocmd Filetype java set makeprg=javac\ %:h/../**/*.java
-        autocmd Filetype java set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
-        autocmd Filetype java noremap <F9> :silent make<Return>:silent copen<Return>
-        autocmd Filetype java inoreabbrev psvm public static void main(String[] args) {<c-o>==<c-o>o}<c-o>O
-        autocmd Filetype java inoreabbrev sout System.out.println();<c-o>h
+    augroup IDE
+        autocmd!
+        " java
+            autocmd Filetype java set makeprg=javac\ %:h/../**/*.java
+            autocmd Filetype java set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
+            autocmd Filetype java noremap <F9> :silent make<Return>:silent copen<Return>
+            autocmd Filetype java inoreabbrev psvm public static void main(String[] args) {<c-o>==<c-o>o}<c-o>O
+            autocmd Filetype java inoreabbrev sout System.out.println();<c-o>h
+        
+            autocmd Filetype java set tabstop=4
+            autocmd Filetype java set shiftwidth=4
+        
+        "JavaScript
+            autocmd Filetype javascript set tabstop=2
+            autocmd Filetype javascript set shiftwidth=2
+
+        "SQL
+            autocmd Filetype sql set tabstop=4
+            autocmd Filetype sql set shiftwidth=4
+    augroup END
+
 " ------------------------------------------------------------------------- "
 "
 "                                     GUI
 " ------------------------------------------------------------------------- "
     if has("gui_running")
         syntax on
-        set guifont=Consolas:h17:cANSI:qDRAFT
+        set guifont=Consolas:h12:cANSI:qDRAFT
         set lines=60 columns=108 linespace=0
     endif
 " ------------------------------------------------------------------------- "
@@ -226,9 +255,15 @@
     " Spell check applied to pt_br and en_us
     set spelllang=pt_br,en_us
 
-    " Spell check for any Text file (*.txt)
-    autocmd filetype Text setlocal spell
-	autocmd filetype Scratch setlocal spell
+    " Spell check for any Text file (*.txt,*.wiki) and scrachs
+    augroup SP
+        autocmd!
+        autocmd FileType text setlocal spell
+        autocmd FileType vimwiki setlocal spell
+	    autocmd filetype scratch setlocal spell
+	    autocmd filetype gitcommit setlocal spell
+    augroup END
+
 
     "çsp to toggle spell check
     nnoremap <leader>sp :silent setlocal spell!<cr>
