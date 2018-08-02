@@ -2,15 +2,15 @@
 "
 "   ███████╗██████╗ ██╗███████╗███████╗███████╗      ██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
 "   ██╔════╝██╔══██╗██║██╔════╝██╔════╝██╔════╝      ██║   ██║██║████╗ ████║██╔══██╗██╔════╝
-"   ███████╗██████╔╝██║█████╗  ███████╗███████╗      ██║   ██║██║██╔████╔██║██████╔╝██║     
-"   ╚════██║██╔═══╝ ██║██╔══╝  ╚════██║╚════██║      ╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║     
+"   ███████╗██████╔╝██║█████╗  ███████╗███████╗      ██║   ██║██║██╔████╔██║██████╔╝██║
+"   ╚════██║██╔═══╝ ██║██╔══╝  ╚════██║╚════██║      ╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║
 "   ███████║██║     ██║███████╗███████║███████║    ██╗╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
 "   ╚══════╝╚═╝     ╚═╝╚══════╝╚══════╝╚══════╝    ╚═╝ ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
-"  
+"
 "
 "  This is Gustavo Spiess's .vimrc file;
 "  Feel free to use, distribute or sell it;
-"  
+"
 "
 "                   leaders (you migth want to change this)
 " ------------------------------------------------------------------------- "
@@ -26,7 +26,7 @@
     set wrap
     set linebreak
     set breakindent
-    set showbreak=____
+    set showbreak=\ \ \ \ 
 
     set nolist
     set smarttab
@@ -43,10 +43,7 @@
     set ignorecase
 
     colorscheme desert
-" ------------------------------------------------------------------------- "
-"
-"                                     Spell
-" ------------------------------------------------------------------------- "
+
     set formatoptions=tcq2n
 
     set autoread
@@ -68,7 +65,6 @@
         set undodir=~\.vim\undo\\
     endif
 
-    nnoremap <leader>sp :setlocal spell!<cr>
     set spelllang=pt_br,en_us
 
     let g:bookmark_annotation_sign = '>>'
@@ -91,13 +87,13 @@
 " ------------------------------------------------------------------------- "
     set rtp+=~/.vim/bundle/Vundle.vim
     call vundle#begin()
-    
+
     " plugin manager
     Plugin 'VundleVim/Vundle.vim'
-    
+
     " panels for projects
     Plugin 'mihaifm/vimpanel'
-    
+
     " style for status row
     Plugin 'vim-airline/vim-airline'
 
@@ -121,7 +117,7 @@
 
     " linter
     Plugin 'w0rp/ale'
-    
+
     "Organization and note taking
         "Wiki
         Plugin 'vimwiki/vimwiki'
@@ -142,73 +138,83 @@
     let g:VimpanelWinSize=30
 " ------------------------------------------------------------------------- "
 "
-"                           Case sensitiveess remap
-" ------------------------------------------------------------------------- "
-    cnoreabbrev W! w!
-    cnoreabbrev Q! q!
-    cnoreabbrev Qall! qall!
-    cnoreabbrev Wq wq
-    cnoreabbrev Wa wa
-    cnoreabbrev wQ wq
-    cnoreabbrev WQ wq
-    cnoreabbrev W w
-    cnoreabbrev Q q
-    cnoreabbrev Qall qall
-" ------------------------------------------------------------------------- "
-"
-"                               .vimrc quik open
-" ------------------------------------------------------------------------- "
-    "ev for edit vimrc
-    nnoremap <leader>ev :silent split $MYVIMRC<cr><C-w>T
-    "sv for source vimrc
-    nnoremap <leader>sv :silent source $MYVIMRC<cr>
-" ------------------------------------------------------------------------- "
-"
 "                                    remaps
 " ------------------------------------------------------------------------- "
-    " Search centralized 
+    " Search centralized
         nnoremap n nzz
         nnoremap N Nzz
         nnoremap * *zz
         nnoremap # #zz
-    "
 
     " block navigation
         nnoremap [[ :silent let @" = @/<cr>?{<cr>:silent let @/ = @"<cr>
         nnoremap [] :silent let @" = @/<cr>?}<cr>:silent let @/ = @"<cr>
         nnoremap ][ :silent let @" = @/<cr>/}<cr>:silent let @/ = @"<cr>
         nnoremap ]] :silent let @" = @/<cr>/{<cr>:silent let @/ = @"<cr>
-    "
-" ------------------------------------------------------------------------- "
-"
-"                                register share
-" ------------------------------------------------------------------------- "
-    nnoremap y "+y
-    nnoremap Y "+Y
-    nnoremap p "+p
-    nnoremap P "+P
-    nnoremap d "+d
-    nnoremap D "+D
-    nnoremap c "+c
-    nnoremap C "+C
-    nnoremap x "+x
-    nnoremap X "+X
-    nnoremap r "+r
-    nnoremap s "+s
-    nnoremap S "+S
 
-    vnoremap y "+y
-    vnoremap Y "+Y
-    vnoremap p "+p
-    vnoremap P "+P
-    vnoremap d "+d
-    vnoremap D "+D
-    vnoremap c "+c
-    vnoremap C "+C
-    vnoremap x "+x
-    vnoremap X "+X
-    vnoremap r "+r
-    vnoremap s "+s
+    " very magic search
+        nnoremap / /\v
+        vnoremap / /\v
+        nnoremap ? ?\v
+        vnoremap ? ?\v
+
+    " .vimrc quik open
+        "ev for edit vimrc
+        nnoremap <leader>ev :silent split $MYVIMRC<cr><C-w>T
+        "sv for source vimrc
+        nnoremap <leader>sv :silent source $MYVIMRC<cr>
+
+    " Case sensitiveess remap
+        cnoreabbrev W! w!
+        cnoreabbrev Q! q!
+        cnoreabbrev Qall! qall!
+        cnoreabbrev Wq wq
+        cnoreabbrev Wa wa
+        cnoreabbrev wQ wq
+        cnoreabbrev WQ wq
+        cnoreabbrev W w
+        cnoreabbrev Q q
+        cnoreabbrev Qall qall
+
+    " Scratch
+        nnoremap <leader>tf :setlocal buftype=<cr>
+        nnoremap <leader>ts :setlocal buftype=nofile<cr>
+        nnoremap <leader>nf <C-w>n
+        nnoremap <leader>ns <C-w>n:setlocal buftype=nofile<cr>
+
+    " register share
+        nnoremap y "+y
+        nnoremap Y "+Y
+        nnoremap p "+p
+        nnoremap P "+P
+        nnoremap d "+d
+        nnoremap D "+D
+        nnoremap c "+c
+        nnoremap C "+C
+        nnoremap x "+x
+        nnoremap X "+X
+        nnoremap r "+r
+        nnoremap s "+s
+        nnoremap S "+S
+
+        vnoremap y "+y
+        vnoremap Y "+Y
+        vnoremap p "+p
+        vnoremap P "+P
+        vnoremap d "+d
+        vnoremap D "+D
+        vnoremap c "+c
+        vnoremap C "+C
+        vnoremap x "+x
+        vnoremap X "+X
+        vnoremap r "+r
+        vnoremap s "+s
+
+    " undo
+        inoremap <cr> <C-g>u<cr>
+
+    " spell toggle
+        nnoremap <leader>sp :setlocal spell!<cr>
 " ------------------------------------------------------------------------- "
 "
 "                                  IDE tools
@@ -221,10 +227,10 @@
             autocmd Filetype java noremap <F9> :silent make<Return>:silent copen<Return>
             autocmd Filetype java inoreabbrev psvm public static void main(String[] args) {<c-o>==<c-o>o}<c-o>O
             autocmd Filetype java inoreabbrev sout System.out.println();<c-o>h
-        
+
             autocmd Filetype java set tabstop=4
             autocmd Filetype java set shiftwidth=4
-        
+
         "JavaScript
             autocmd Filetype javascript set tabstop=2
             autocmd Filetype javascript set shiftwidth=2
@@ -267,23 +273,6 @@
 	    autocmd filetype scratch setlocal spell
 	    autocmd filetype gitcommit setlocal spell
     augroup END
+" ------------------------------------------------------------------------- "
 
-
-    "çsp to toggle spell check
-    nnoremap <leader>sp :silent setlocal spell!<cr>
-
-    inoremap <C-x><C-=> <C-o>j<C-o>z=<C-o>k
-" ------------------------------------------------------------------------- "
-"
-"                                    Undo
-" ------------------------------------------------------------------------- "
-    inoremap <cr> <C-g>u<cr>
-" ------------------------------------------------------------------------- "
-"
-"                                   Scratch
-" ------------------------------------------------------------------------- "
-    nnoremap <leader>tf :setlocal buftype=<cr>
-    nnoremap <leader>ts :setlocal buftype=nofile<cr>
-    nnoremap <leader>nf <C-w>n
-    nnoremap <leader>ns <C-w>n:setlocal buftype=nofile<cr>
-" ------------------------------------------------------------------------- "
+nnoremap <leader>cd :execute "cd %:h"<cr>:pwd<cr>
