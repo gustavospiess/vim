@@ -212,6 +212,7 @@
 
     " undo
         inoremap <cr> <C-g>u<cr>
+        inoremap <space> <C-g>u<space>
 
     " spell toggle
         nnoremap <leader>sp :setlocal spell!<cr>
