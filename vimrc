@@ -183,24 +183,24 @@
         nnoremap <leader>ns <C-w>n:setlocal buftype=nofile<cr>
 
     " register share toggle
-    let g:registerShare = 0
-    let g:registerShareOperations = ['y','Y','p','P','d','D','c','C','x','X','r','s']
-    function! RegisterShareToggle()
-        let g:registerShare = !g:registerShare
-        if g:registerShare
-            for operation in g:registerShareOperations 
-                execute 'nnoremap '.operation.' '.operation
-                execute 'vnoremap '.operation.' '.operation
-            endfor
-        else
-            for operation in g:registerShareOperations 
-                execute 'nnoremap '.operation.' "+'.operation
-                execute 'vnoremap '.operation.' "+'.operation
-            endfor
-        endif
-    endfunction
-    call RegisterShareToggle()
-    nnoremap <leader>+ :call RegisterShareToggle()<cr>
+        let g:registerShare = 0
+        let g:registerShareOperations = ['y','Y','p','P','d','D','c','C','x','X','r','s']
+        function! RegisterShareToggle()
+            let g:registerShare = !g:registerShare
+            if g:registerShare
+                for operation in g:registerShareOperations 
+                    execute 'nnoremap '.operation.' '.operation
+                    execute 'vnoremap '.operation.' '.operation
+                endfor
+            else
+                for operation in g:registerShareOperations 
+                    execute 'nnoremap '.operation.' "+'.operation
+                    execute 'vnoremap '.operation.' "+'.operation
+                endfor
+            endif
+        endfunction
+        call RegisterShareToggle()
+        nnoremap <leader>+ :call RegisterShareToggle()<cr>
 
     " undo
         inoremap <cr> <C-g>u<cr>
@@ -208,6 +208,9 @@
 
     " spell toggle
         nnoremap <leader>sp :setlocal spell!<cr>
+
+    " change directory
+        nnoremap <leader>cd :execute "cd %:h"<cr>:pwd<cr>
 " ------------------------------------------------------------------------- "
 "
 "                                  IDE tools
@@ -268,4 +271,3 @@
     augroup END
 " ------------------------------------------------------------------------- "
 
-nnoremap <leader>cd :execute "cd %:h"<cr>:pwd<cr>
