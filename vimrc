@@ -160,7 +160,7 @@
 
     " .vimrc quik open
         "ev for edit vimrc
-        nnoremap <leader>ev :silent split $MYVIMRC<cr><C-w>T
+        nnoremap <leader>ev :silent tabe $MYVIMRC<cr>
         "sv for source vimrc
         nnoremap <leader>sv :silent source $MYVIMRC<cr>
 
@@ -182,33 +182,25 @@
         nnoremap <leader>nf <C-w>n
         nnoremap <leader>ns <C-w>n:setlocal buftype=nofile<cr>
 
-    " register share
-        nnoremap y "+y
-        nnoremap Y "+Y
-        nnoremap p "+p
-        nnoremap P "+P
-        nnoremap d "+d
-        nnoremap D "+D
-        nnoremap c "+c
-        nnoremap C "+C
-        nnoremap x "+x
-        nnoremap X "+X
-        nnoremap r "+r
-        nnoremap s "+s
-        nnoremap S "+S
-
-        vnoremap y "+y
-        vnoremap Y "+Y
-        vnoremap p "+p
-        vnoremap P "+P
-        vnoremap d "+d
-        vnoremap D "+D
-        vnoremap c "+c
-        vnoremap C "+C
-        vnoremap x "+x
-        vnoremap X "+X
-        vnoremap r "+r
-        vnoremap s "+s
+    " register share toggle
+    let g:registerShare = 0
+    let g:registerShareOperations = ['y','Y','p','P','d','D','c','C','x','X','r','s']
+    function! RegisterShareToggle()
+        let g:registerShare = !g:registerShare
+        if g:registerShare
+            for operation in g:registerShareOperations 
+                execute 'nnoremap '.operation.' '.operation
+                execute 'vnoremap '.operation.' '.operation
+            endfor
+        else
+            for operation in g:registerShareOperations 
+                execute 'nnoremap '.operation.' "+'.operation
+                execute 'vnoremap '.operation.' "+'.operation
+            endfor
+        endif
+    endfunction
+    call RegisterShareToggle()
+    nnoremap <leader>+ :call RegisterShareToggle()<cr>
 
     " undo
         inoremap <cr> <C-g>u<cr>
