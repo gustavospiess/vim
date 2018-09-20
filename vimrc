@@ -128,6 +128,9 @@
     " Git
     Plugin 'tpope/vim-fugitive'
 
+    " Name generator
+    Plugin 'furblinguagens20181/2018-2-vimscript'
+
     call vundle#end()
     filetype plugin indent on
 " ------------------------------------------------------------------------- "
@@ -216,6 +219,9 @@
 
     " spell toggle
         nnoremap <leader>sp :setlocal spell!<cr>
+
+    " change directory
+        nnoremap <leader>cd :execute "cd %:h"<cr>:pwd<cr>
 " ------------------------------------------------------------------------- "
 "
 "                                  IDE tools
@@ -232,13 +238,16 @@
             autocmd Filetype java set tabstop=4
             autocmd Filetype java set shiftwidth=4
 
-        "JavaScript
+        " JavaScript
             autocmd Filetype javascript set tabstop=2
             autocmd Filetype javascript set shiftwidth=2
 
-        "SQL
+        " SQL
             autocmd Filetype sql set tabstop=4
             autocmd Filetype sql set shiftwidth=4
+
+        " VimScript
+            autocmd Filetype vim noremap <F9> :source %<Return>
     augroup END
 
 " ------------------------------------------------------------------------- "
@@ -275,5 +284,3 @@
 	    autocmd filetype gitcommit setlocal spell
     augroup END
 " ------------------------------------------------------------------------- "
-
-nnoremap <leader>cd :execute "cd %:h"<cr>:pwd<cr>
