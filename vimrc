@@ -52,6 +52,9 @@
     set nocompatible
     set nobackup "no backup
 
+    set undofile
+    set undolevels=3000
+
     if !empty(glob("~/.vim/vimrc"))
         " for unix-like separator
         set backupdir=~/.vim/backup//
@@ -193,7 +196,6 @@
 
     " undo
         inoremap <cr> <C-g>u<cr>
-        inoremap <space> <C-g>u<space>
         inoremap . <C-g>u.
         inoremap , <C-g>u,
 
