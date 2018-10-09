@@ -67,9 +67,6 @@
 
     set spelllang=pt_br,en_us
 
-    let g:bookmark_annotation_sign = '>>'
-    let g:bookmark_sign = '>'
-
     set grepprg=git\ grep
     colorscheme desert
 " ------------------------------------------------------------------------- "
@@ -106,17 +103,8 @@
     " pt_br spelling
     Bundle 'mateusbraga/vim-spell-pt-br'
 
-    " bookmarks
-    Plugin 'MattesGroeger/vim-bookmarks'
-
-    " table mode
-    Plugin 'dhruvasagar/vim-table-mode'
-
     " dbext
     Plugin 'vim-scripts/dbext.vim'
-
-    " linter
-    Plugin 'w0rp/ale'
 
     "Organization and note taking
         "Wiki
@@ -186,31 +174,35 @@
         let g:registerShare = 0
         let g:registerShareOperations = ['y','Y','p','P','d','D','c','C','x','X','r','s']
         function! RegisterShareToggle()
-            let g:registerShare = !g:registerShare
             if g:registerShare
                 for operation in g:registerShareOperations 
                     execute 'nnoremap '.operation.' '.operation
                     execute 'vnoremap '.operation.' '.operation
                 endfor
+                echo 'not sharing registers'
             else
                 for operation in g:registerShareOperations 
                     execute 'nnoremap '.operation.' "+'.operation
                     execute 'vnoremap '.operation.' "+'.operation
                 endfor
+                echo 'sharing registers'
             endif
+            let g:registerShare = !g:registerShare
         endfunction
-        call RegisterShareToggle()
         nnoremap <leader>+ :call RegisterShareToggle()<cr>
 
     " undo
         inoremap <cr> <C-g>u<cr>
         inoremap <space> <C-g>u<space>
+        inoremap . <C-g>u.
+        inoremap , <C-g>u,
 
     " spell toggle
         nnoremap <leader>sp :setlocal spell!<cr>
 
     " change directory
         nnoremap <leader>cd :execute "cd %:h"<cr>:pwd<cr>
+
 " ------------------------------------------------------------------------- "
 "
 "                                  IDE tools
