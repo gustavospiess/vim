@@ -52,6 +52,9 @@
     set nocompatible
     set nobackup "no backup
 
+    set undofile
+    set undolevels=3000
+
     if !empty(glob("~/.vim/vimrc"))
         " for unix-like separator
         set backupdir=~/.vim/backup//
@@ -66,9 +69,6 @@
     endif
 
     set spelllang=pt_br,en_us
-
-    let g:bookmark_annotation_sign = '>>'
-    let g:bookmark_sign = '>'
 
     set grepprg=git\ grep
     colorscheme desert
@@ -106,17 +106,8 @@
     " pt_br spelling
     Bundle 'mateusbraga/vim-spell-pt-br'
 
-    " bookmarks
-    Plugin 'MattesGroeger/vim-bookmarks'
-
-    " table mode
-    Plugin 'dhruvasagar/vim-table-mode'
-
     " dbext
     Plugin 'vim-scripts/dbext.vim'
-
-    " linter
-    Plugin 'w0rp/ale'
 
     "Organization and note taking
         "Wiki
@@ -163,7 +154,7 @@
 
     " .vimrc quik open
         "ev for edit vimrc
-        nnoremap <leader>ev :silent split $MYVIMRC<cr><C-w>T
+        nnoremap <leader>ev :silent tabe $MYVIMRC<cr>
         "sv for source vimrc
         nnoremap <leader>sv :silent source $MYVIMRC<cr>
 
@@ -185,37 +176,31 @@
         nnoremap <leader>nf <C-w>n
         nnoremap <leader>ns <C-w>n:setlocal buftype=nofile<cr>
 
-    " register share
-        nnoremap y "+y
-        nnoremap Y "+Y
-        nnoremap p "+p
-        nnoremap P "+P
-        nnoremap d "+d
-        nnoremap D "+D
-        nnoremap c "+c
-        nnoremap C "+C
-        nnoremap x "+x
-        nnoremap X "+X
-        nnoremap r "+r
-        nnoremap s "+s
-        nnoremap S "+S
-
-        vnoremap y "+y
-        vnoremap Y "+Y
-        vnoremap p "+p
-        vnoremap P "+P
-        vnoremap d "+d
-        vnoremap D "+D
-        vnoremap c "+c
-        vnoremap C "+C
-        vnoremap x "+x
-        vnoremap X "+X
-        vnoremap r "+r
-        vnoremap s "+s
+    " register share toggle
+        let g:registerShare = 0
+        let g:registerShareOperations = ['y','Y','p','P','d','D','c','C','x','X','r','s']
+        function! RegisterShareToggle()
+            if g:registerShare
+                for operation in g:registerShareOperations 
+                    execute 'nnoremap '.operation.' '.operation
+                    execute 'vnoremap '.operation.' '.operation
+                endfor
+                echo 'not sharing registers'
+            else
+                for operation in g:registerShareOperations 
+                    execute 'nnoremap '.operation.' "+'.operation
+                    execute 'vnoremap '.operation.' "+'.operation
+                endfor
+                echo 'sharing registers'
+            endif
+            let g:registerShare = !g:registerShare
+        endfunction
+        nnoremap <leader>+ :call RegisterShareToggle()<cr>
 
     " undo
         inoremap <cr> <C-g>u<cr>
-        inoremap <space> <C-g>u<space>
+        inoremap . <C-g>u.
+        inoremap , <C-g>u,
 
     " spell toggle
         nnoremap <leader>sp :setlocal spell!<cr>
