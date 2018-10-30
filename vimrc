@@ -18,62 +18,6 @@
     let mapleader = 'ç'
 " ------------------------------------------------------------------------- "
 "
-"                                     Flags
-" ------------------------------------------------------------------------- "
-    set number
-    set ruler
-
-    set wrap
-    set linebreak
-    set breakindent
-    set showbreak=\ \ \ \ 
-
-    set nolist
-    set smarttab
-    set expandtab
-    set tabstop=4
-    set shiftwidth=4
-    set laststatus=2
-
-    set foldmethod=indent
-    set encoding=utf-8
-    set fileencoding=utf-8
-
-    set hlsearch
-    set ignorecase
-
-    colorscheme desert
-
-    set formatoptions=tcq2n
-
-    set autoread
-    set autowrite
-
-    set nocompatible
-    set nobackup "no backup
-
-    set undofile
-    set undolevels=3000
-
-    if !empty(glob("~/.vim/vimrc"))
-        " for unix-like separator
-        set backupdir=~/.vim/backup//
-        set directory=~/.vim/swap//
-        set undodir=~/.vim/undo//
-    endif
-    if !empty(glob("~\.vim\vimrc"))
-        " for windows like separator
-        set backupdir=~\.vim\backup\\
-        set directory=~\.vim\swap\\
-        set undodir=~\.vim\undo\\
-    endif
-
-    set spelllang=pt_br,en_us
-
-    set grepprg=git\ grep
-    colorscheme desert
-" ------------------------------------------------------------------------- "
-"
 "                               new  file config
 " ------------------------------------------------------------------------- "
     " files with no type Will be considered text
@@ -119,8 +63,83 @@
     " Git
     Plugin 'tpope/vim-fugitive'
 
+    " OneDark style
+    Plugin 'joshdick/onedark.vim'
+
     call vundle#end()
     filetype plugin indent on
+" ------------------------------------------------------------------------- "
+"
+"                                     Flags
+" ------------------------------------------------------------------------- "
+    set number
+    set ruler
+
+    set wrap
+    set linebreak
+    set breakindent
+    set showbreak=\ \ \ \ 
+
+    set nolist
+    set smarttab
+    set expandtab
+    set tabstop=4
+    set shiftwidth=4
+    set laststatus=2
+
+    set foldmethod=indent
+    set encoding=utf-8
+    set fileencoding=utf-8
+
+    set hlsearch
+    set ignorecase
+
+    set formatoptions=tcq2n
+
+    set autoread
+    set autowrite
+
+    set nocompatible
+    set nobackup "no backup
+
+    set undofile
+    set undolevels=3000
+
+    if !empty(glob("~/.vim/vimrc"))
+        " for unix-like separator
+        set backupdir=~/.vim/backup//
+        set directory=~/.vim/swap//
+        set undodir=~/.vim/undo//
+    endif
+    if !empty(glob("~\.vim\vimrc"))
+        " for windows like separator
+        set backupdir=~\.vim\backup\\
+        set directory=~\.vim\swap\\
+        set undodir=~\.vim\undo\\
+    endif
+
+    set spelllang=pt_br,en_us
+
+    set grepprg=git\ grep
+    colorscheme onedark
+
+    set diffopt+=iwhite
+" ------------------------------------------------------------------------- "
+"
+"                                  Vimwiki
+" ------------------------------------------------------------------------- "
+  let wiki = {}
+  let wiki.path = '~/vimwiki/'
+  let wiki.nested_syntaxes = {'pascal': 'pascal',
+              \'sql': 'sql',
+              \'java': 'java',
+              \'javascript': 'js',
+              \'text': 'text',
+              \'xml': 'xml',
+              \'html': 'html',
+              \'rtf': 'rtf',
+              \'css': 'css'}
+  let g:vimwiki_list = [wiki]
 " ------------------------------------------------------------------------- "
 "
 "                                  vimpanel
@@ -218,16 +237,20 @@
             autocmd Filetype java inoreabbrev psvm public static void main(String[] args) {<c-o>==<c-o>o}<c-o>O
             autocmd Filetype java inoreabbrev sout System.out.println();<c-o>h
 
-            autocmd Filetype java set tabstop=4
-            autocmd Filetype java set shiftwidth=4
+            autocmd Filetype java setlocal tabstop=4
+            autocmd Filetype java setlocal shiftwidth=4
 
-        "JavaScript
-            autocmd Filetype javascript set tabstop=2
-            autocmd Filetype javascript set shiftwidth=2
+        " JavaScript
+            autocmd Filetype javascript setlocal tabstop=2
+            autocmd Filetype javascript setlocal shiftwidth=2
 
-        "SQL
+        " SQL
             autocmd Filetype sql set tabstop=4
             autocmd Filetype sql set shiftwidth=4
+
+        " Pascal
+            autocmd Filetype Pascal set tabstop=3
+            autocmd Filetype Pascal set shiftwidth=3
     augroup END
 
 " ------------------------------------------------------------------------- "
