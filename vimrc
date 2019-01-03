@@ -155,51 +155,6 @@
     let g:VimpanelCompact=1
     let g:VimpanelWinSize=30
 " ------------------------------------------------------------------------- "
-" ------------------------------------------------------------------------- "
-"
-"                                    Vundle
-" ------------------------------------------------------------------------- "
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
-
-    " plugin manager
-    Plugin 'VundleVim/Vundle.vim'
-
-    " panels for projects
-    Plugin 'mihaifm/vimpanel'
-
-    " style for status row
-    Plugin 'vim-airline/vim-airline'
-
-    " indentation object
-    Plugin 'michaeljsmith/vim-indent-object'
-
-    " surroun
-    Plugin 'tpope/vim-surround'
-
-    " pt_br spelling
-    Bundle 'mateusbraga/vim-spell-pt-br'
-
-    " dbext
-    Plugin 'vim-scripts/dbext.vim'
-
-    "Organization and note taking
-        "Wiki
-        Plugin 'vimwiki/vimwiki'
-
-        "Calendar
-        Plugin 'mattn/calendar-vim'
-
-    " Git
-    Plugin 'tpope/vim-fugitive'
-
-    " Name generator
-    Plugin 'furblinguagens20181/2018-2-vimscript'
-
-    call vundle#end()
-    filetype plugin indent on
-
-" ------------------------------------------------------------------------- "
 "
 "                                  vimpanel
 " ------------------------------------------------------------------------- "
