@@ -155,6 +155,57 @@
     let g:VimpanelCompact=1
     let g:VimpanelWinSize=30
 " ------------------------------------------------------------------------- "
+" ------------------------------------------------------------------------- "
+"
+"                                    Vundle
+" ------------------------------------------------------------------------- "
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+
+    " plugin manager
+    Plugin 'VundleVim/Vundle.vim'
+
+    " panels for projects
+    Plugin 'mihaifm/vimpanel'
+
+    " style for status row
+    Plugin 'vim-airline/vim-airline'
+
+    " indentation object
+    Plugin 'michaeljsmith/vim-indent-object'
+
+    " surroun
+    Plugin 'tpope/vim-surround'
+
+    " pt_br spelling
+    Bundle 'mateusbraga/vim-spell-pt-br'
+
+    " dbext
+    Plugin 'vim-scripts/dbext.vim'
+
+    "Organization and note taking
+        "Wiki
+        Plugin 'vimwiki/vimwiki'
+
+        "Calendar
+        Plugin 'mattn/calendar-vim'
+
+    " Git
+    Plugin 'tpope/vim-fugitive'
+
+    " Name generator
+    Plugin 'furblinguagens20181/2018-2-vimscript'
+
+    call vundle#end()
+    filetype plugin indent on
+>>>>>>> 124259041b8aea15a447b3de358943aa91c1ae93
+" ------------------------------------------------------------------------- "
+"
+"                                  vimpanel
+" ------------------------------------------------------------------------- "
+    let g:VimpanelCompact=1
+    let g:VimpanelWinSize=30
+" ------------------------------------------------------------------------- "
 "
 "                                    remaps
 " ------------------------------------------------------------------------- "
@@ -237,35 +288,7 @@
         nnoremap <leader>cd :execute "cd %:h"<cr>:pwd<cr>
 
 " ------------------------------------------------------------------------- "
-"
-"                                  IDE tools
-" ------------------------------------------------------------------------- "
-    augroup IDE
-        autocmd!
-        " java
-            autocmd Filetype java setlocal makeprg=javac\ %:h/../**/*.java
-            autocmd Filetype java setlocal errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
-            autocmd Filetype java noremap <F9> :silent make<Return>:silent copen<Return>
-            autocmd Filetype java inoreabbrev psvm public static void main(String[] args) {<c-o>==<c-o>o}<c-o>O
-            autocmd Filetype java inoreabbrev sout System.out.println();<c-o>h
 
-            autocmd Filetype java setlocal tabstop=4
-            autocmd Filetype java setlocal shiftwidth=4
-
-        " JavaScript
-            autocmd Filetype javascript setlocal tabstop=2
-            autocmd Filetype javascript setlocal shiftwidth=2
-
-        " SQL
-            autocmd Filetype sql setlocal tabstop=4
-            autocmd Filetype sql setlocal shiftwidth=4
-
-        " Pascal
-            autocmd Filetype Pascal setlocal tabstop=3
-            autocmd Filetype Pascal setlocal shiftwidth=3
-    augroup END
-
-" ------------------------------------------------------------------------- "
 "
 "                                     GUI
 " ------------------------------------------------------------------------- "
@@ -302,5 +325,5 @@
 	    autocmd filetype scratch setlocal spell
 	    autocmd filetype gitcommit setlocal spell
     augroup END
-" ------------------------------------------------------------------------- "
 
+" ------------------------------------------------------------------------- "
