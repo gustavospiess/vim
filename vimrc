@@ -50,6 +50,9 @@
     " pt_br spelling
     Bundle 'mateusbraga/vim-spell-pt-br'
 
+    " es spelling
+    Bundle 'llucbrell/vim-es-spellchecker-rem'
+
     " dbext
     Plugin 'vim-scripts/dbext.vim'
 
@@ -62,6 +65,9 @@
 
     " Git
     Plugin 'tpope/vim-fugitive'
+
+    " Matcihng
+    Plugin 'tmhedberg/matchit'
 
     " OneDark style
     Plugin 'joshdick/onedark.vim'
@@ -128,18 +134,20 @@
 "
 "                                  Vimwiki
 " ------------------------------------------------------------------------- "
-  let wiki = {}
-  let wiki.path = '~/vimwiki/'
-  let wiki.nested_syntaxes = {'pascal': 'pascal',
-              \'sql': 'sql',
-              \'java': 'java',
-              \'javascript': 'js',
-              \'text': 'text',
-              \'xml': 'xml',
-              \'html': 'html',
-              \'rtf': 'rtf',
-              \'css': 'css'}
-  let g:vimwiki_list = [wiki]
+    let wiki = {}
+    let wiki.path = '~/vimwiki/'
+    let wiki.nested_syntaxes = {
+                \'pascal': 'pascal',
+                \'sql': 'sql',
+                \'java': 'java',
+                \'javascript': 'js',
+                \'text': 'text',
+                \'diff': 'diff',
+                \'xml': 'xml',
+                \'html': 'html',
+                \'rtf': 'rtf',
+                \'css': 'css'}
+    let g:vimwiki_list = [wiki]
 " ------------------------------------------------------------------------- "
 "
 "                                  vimpanel
@@ -201,17 +209,21 @@
                     execute 'nnoremap '.operation.' '.operation
                     execute 'vnoremap '.operation.' '.operation
                 endfor
+                nnoremap <leader>yp :let @" = expand('%:p')<cr>
                 echo 'not sharing registers'
             else
                 for operation in g:registerShareOperations 
                     execute 'nnoremap '.operation.' "+'.operation
                     execute 'vnoremap '.operation.' "+'.operation
                 endfor
+                nnoremap <leader>yp :let @+ = expand('%:p')<cr>
                 echo 'sharing registers'
             endif
             let g:registerShare = !g:registerShare
         endfunction
         nnoremap <leader>+ :call RegisterShareToggle()<cr>
+
+        call RegisterShareToggle()
 
     " undo
         inoremap <cr> <C-g>u<cr>
@@ -231,8 +243,8 @@
     augroup IDE
         autocmd!
         " java
-            autocmd Filetype java set makeprg=javac\ %:h/../**/*.java
-            autocmd Filetype java set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
+            autocmd Filetype java setlocal makeprg=javac\ %:h/../**/*.java
+            autocmd Filetype java setlocal errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
             autocmd Filetype java noremap <F9> :silent make<Return>:silent copen<Return>
             autocmd Filetype java inoreabbrev psvm public static void main(String[] args) {<c-o>==<c-o>o}<c-o>O
             autocmd Filetype java inoreabbrev sout System.out.println();<c-o>h
@@ -245,12 +257,12 @@
             autocmd Filetype javascript setlocal shiftwidth=2
 
         " SQL
-            autocmd Filetype sql set tabstop=4
-            autocmd Filetype sql set shiftwidth=4
+            autocmd Filetype sql setlocal tabstop=4
+            autocmd Filetype sql setlocal shiftwidth=4
 
         " Pascal
-            autocmd Filetype Pascal set tabstop=3
-            autocmd Filetype Pascal set shiftwidth=3
+            autocmd Filetype Pascal setlocal tabstop=3
+            autocmd Filetype Pascal setlocal shiftwidth=3
     augroup END
 
 " ------------------------------------------------------------------------- "
@@ -259,8 +271,12 @@
 " ------------------------------------------------------------------------- "
     if has("gui_running")
         syntax on
-        set guifont=Consolas:h12:cANSI:qDRAFT
-        set lines=60 columns=108 linespace=0
+        set guifont=Consolas:h11:cANSI:qDRAFT
+
+        set guioptions-=m  "remove menu bar
+        set guioptions-=T  "remove toolbar
+        set guioptions-=r  "remove right-hand scroll bar
+        set guioptions-=L  "remove left-hand scroll bar
     endif
 " ------------------------------------------------------------------------- "
 "
