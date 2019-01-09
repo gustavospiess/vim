@@ -15,7 +15,7 @@
     set shiftwidth=4
     set laststatus=2
 
-    set foldmethod=indent
+    set foldmethod=syntax
     set encoding=utf-8
     set fileencoding=utf-8
 
@@ -28,7 +28,9 @@
     set autowrite
 
     set nocompatible
-    set nobackup "no backup
+    set backup "no backup
+
+    set scrolloff=7
 
     set undofile
     set undolevels=3000
@@ -52,4 +54,13 @@
     colorscheme onedark
 
     set diffopt+=iwhite
+
+    set number relativenumber
+
+    augroup numbertoggle
+      autocmd!
+      autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+      autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+    augroup END
 " ------------------------------------------------------------------------- "
+    let g:xml_syntax_folding=1

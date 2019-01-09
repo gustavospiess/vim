@@ -12,6 +12,12 @@
         nnoremap ][ :silent let @" = @/<cr>/}<cr>:silent let @/ = @"<cr>
         nnoremap ]] :silent let @" = @/<cr>/{<cr>:silent let @/ = @"<cr>
 
+    " paragraph/sentence navigation
+        nnoremap ) w)F 
+        nnoremap ( (F 
+        "nnoremap } j}k$
+        "nnoremap { k{j0
+
     " very magic search
         nnoremap / /\v
         vnoremap / /\v
