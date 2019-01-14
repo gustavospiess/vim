@@ -3,6 +3,8 @@
     set number
     set ruler
 
+    set report=0
+
     set wrap
     set linebreak
     set breakindent

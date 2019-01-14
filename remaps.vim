@@ -5,6 +5,7 @@
         nnoremap N Nzz
         nnoremap * *zz
         nnoremap # #zz
+        nnoremap gn gnzz
 
     " block navigation
         nnoremap [[ :silent let @" = @/<cr>?{<cr>:silent let @/ = @"<cr>
@@ -83,4 +84,9 @@
 
     " change directory
         nnoremap <leader>cd :execute "cd %:h"<cr>:pwd<cr>
+
+    " Fold as object (iz)
+        xnoremap iz :<C-U>silent!normal![zV]z<CR>
+        onoremap iz :normal viz<CR>
+
 " ------------------------------------------------------------------------- "
