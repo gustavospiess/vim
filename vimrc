@@ -26,3 +26,5 @@ source ~/.vim/remaps.vim
 source ~/.vim/spell.vim
 source ~/.vim/vimpanel_conf.vim
 source ~/.vim/vimwiki_conf.vim
+source ~/.vim/ledger_conf.vim
+

@@ -14,4 +14,9 @@
                 \'rtf': 'rtf',
                 \'css': 'css'}
     let g:vimwiki_list = [wiki]
+
+    augroup vimiwkiFiletype
+        autocmd!
+        autocmd Filetype wiki set foldmethod=syntax
+    augroup END
 " ------------------------------------------------------------------------- "
