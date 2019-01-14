@@ -51,27 +51,31 @@
     " register share toggle
         let g:registerShare = 0
         let g:registerShareOperations = ['y','Y','p','P','d','D','c','C','x','X','r','s']
-        function! RegisterShareToggle()
+        function! RegisterShareToggle(echo)
             if g:registerShare
                 for operation in g:registerShareOperations 
                     execute 'nnoremap '.operation.' '.operation
                     execute 'vnoremap '.operation.' '.operation
                 endfor
                 nnoremap <leader>yp :let @" = expand('%:p')<cr>
-                echo 'not sharing registers'
+                if (a:echo)
+                    echo 'not sharing registers'
+                endif
             else
                 for operation in g:registerShareOperations 
                     execute 'nnoremap '.operation.' "+'.operation
                     execute 'vnoremap '.operation.' "+'.operation
                 endfor
                 nnoremap <leader>yp :let @+ = expand('%:p')<cr>
-                echo 'sharing registers'
+                if (a:echo)
+                    echo 'sharing registers'
+                endif
             endif
             let g:registerShare = !g:registerShare
         endfunction
-        nnoremap <leader>+ :call RegisterShareToggle()<cr>
+        nnoremap <leader>+ :call RegisterShareToggle(1)<cr>
 
-        call RegisterShareToggle()
+        call RegisterShareToggle(0)
 
     " undo
         inoremap <cr> <C-g>u<cr>

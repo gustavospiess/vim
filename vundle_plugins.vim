@@ -43,6 +43,9 @@
     " OneDark style
     Plugin 'joshdick/onedark.vim'
 
+    " Ledger
+    Plugin 'ledger/vim-ledger'
+
     call vundle#end()
     filetype plugin indent on
 " ------------------------------------------------------------------------- "
