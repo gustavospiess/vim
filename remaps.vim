@@ -31,6 +31,14 @@
         "sv for source vimrc
         nnoremap <leader>sv :silent source $MYVIMRC<cr>
 
+    "set filetype
+        let g:defautFiletype = ''
+        function! GetDefaultFiletype()
+            let g:defautFiletype = input('filetype: ', g:defautFiletype, 'filetype')
+            return g:defautFiletype
+        endfunction
+        nnoremap <leader>ft :let &filetype=GetDefaultFiletype()<cr>
+
     " Case sensitiveess remap
         cnoreabbrev W! w!
         cnoreabbrev Q! q!
@@ -58,7 +66,7 @@
                     execute 'nnoremap '.operation.' '.operation
                     execute 'vnoremap '.operation.' '.operation
                 endfor
-                nnoremap <leader>yp :let @" = expand('%:p')<cr>
+                nnoremap <leader>yp :let @" = expand('%:p')<cr>:echo @"<cr>
                 if (a:echo)
                     echo 'not sharing registers'
                 endif
@@ -67,7 +75,7 @@
                     execute 'nnoremap '.operation.' "+'.operation
                     execute 'vnoremap '.operation.' "+'.operation
                 endfor
-                nnoremap <leader>yp :let @+ = expand('%:p')<cr>
+                nnoremap <leader>yp :let @+ = expand('%:p')<cr>:echo@+<cr>
                 if (a:echo)
                     echo 'sharing registers'
                 endif

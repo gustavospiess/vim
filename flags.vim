@@ -59,6 +59,8 @@
 
     set number relativenumber
 
+    "set comments=''
+
     augroup numbertoggle
       autocmd!
       autocmd BufEnter,FocusGained,InsertLeave * set relativenumber

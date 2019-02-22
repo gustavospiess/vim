@@ -46,6 +46,9 @@
     " Ledger
     Plugin 'ledger/vim-ledger'
 
+    " Scratch
+    Plugin 'mtth/scratch.vim'
+
     call vundle#end()
     filetype plugin indent on
 " ------------------------------------------------------------------------- "
