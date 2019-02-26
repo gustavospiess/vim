@@ -29,3 +29,4 @@ source ~/.vim/vimpanel_conf.vim
 source ~/.vim/vimwiki_conf.vim
 source ~/.vim/ledger_conf.vim
 source ~/.vim/scratch_conf.vim
+source ~/.vim/snipmate_conf.vim

@@ -6,9 +6,19 @@
 
     let g:scratch_no_mappings = 1
 
-    nmap gs :Scratch<cr>
-    nmap gS :Scratch!<cr>
-    xmap gs :ScratchInsert<cr>
-    xmap gS :ScratchInsert!<cr>
+    function! ConfigureScratch(command)
+        execute a:command
+        setlocal nonumber
+        setlocal norelativenumber
+        setlocal nospell
+        nnoremap <buffer> q <C-w>q
+        nnoremap <buffer> <tab> <C-w>q
+        nnoremap <buffer> <esc><esc> <C-w>q
+    endfunction
+
+    nnoremap gs :call ConfigureScratch('Scratch')<cr>
+    nnoremap gS :call ConfigureScratch('Scratch!')<cr>
+    vnoremap gS :call ConfigureScratch('ScratchSelection!')<cr>
+    vnoremap gS :call ConfigureScratch('ScratchSelection!')<cr>
 
 " ------------------------------------------------------------------------- "
