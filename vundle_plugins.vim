@@ -46,6 +46,9 @@
     " Ledger
     Plugin 'ledger/vim-ledger'
 
+    " Latex
+    Plugin 'vim-latex/vim-latex'
+
     call vundle#end()
     filetype plugin indent on
 " ------------------------------------------------------------------------- "
