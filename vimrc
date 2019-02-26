@@ -23,8 +23,9 @@ source ~/.vim/vundle_plugins.vim
 source ~/.vim/flags.vim
 source ~/.vim/gui_conf.vim
 source ~/.vim/remaps.vim
+source ~/.vim/autocmd.vim
 source ~/.vim/spell.vim
 source ~/.vim/vimpanel_conf.vim
 source ~/.vim/vimwiki_conf.vim
 source ~/.vim/ledger_conf.vim
-
+source ~/.vim/scratch_conf.vim

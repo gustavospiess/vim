@@ -49,6 +49,9 @@
     " Latex
     Plugin 'vim-latex/vim-latex'
 
+    " Scratch
+    Plugin 'mtth/scratch.vim'
+
     call vundle#end()
     filetype plugin indent on
 " ------------------------------------------------------------------------- "
