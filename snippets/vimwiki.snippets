@@ -1,0 +1,54 @@
+snippet os
+									  = ${1:OS number} =
+
+	== Descrição: ==
+	${2:OS desc}
+
+	== Detalhamento: ==
+	${0:OS det}
+
+	== Solicitante: ==
+	${3:solic}
+
+	--------------------------------------------------------------------------------
+
+	:OS:${4}
+snippet an
+	--------------------------------------------------------------------------------
+
+									  = Análise: =
+
+	${0}
+snippet prevan
+	== Análise (${1}) ==
+	${0}
+snippet al
+	--------------------------------------------------------------------------------
+
+									= Alterações: =
+
+	${0}
+snippet doc
+	--------------------------------------------------------------------------------
+
+								   = Documentação: =
+
+	${0}
+snippet t1
+	= ${0} =
+snippet t2
+	== ${0} ==
+snippet t3
+	=== ${0} ===
+snippet histint
+	=== Histórico Interno: ===
+	{{{
+	${0}
+	}}}
+snippet histext
+	=== Histórico Externo: ===
+	{{{
+	${0}
+	}}}
+snippet tag
+	`toupper(input('tag: ', '', 'custom,vimwiki#tags#complete_tags'))`:${0}

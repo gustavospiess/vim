@@ -1,4 +1,6 @@
 swap/*
 undo/*
 bundle/*
+bundle/**.*
+backup/*
 tmp/*

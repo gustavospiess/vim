@@ -52,7 +52,7 @@
     " Scratch
     Plugin 'mtth/scratch.vim'
 
-    "Snipet test
+    "Snipets
     Plugin 'MarcWeber/vim-addon-mw-utils'
     Plugin 'tomtom/tlib_vim'
     Plugin 'garbas/vim-snipmate'
