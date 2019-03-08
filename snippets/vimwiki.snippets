@@ -20,7 +20,7 @@ snippet an
 
 	${0}
 snippet prevan
-	== Análise (${1}) ==
+	== Análise (${1:Suporte}) ==
 	${0}
 snippet al
 	--------------------------------------------------------------------------------
@@ -32,6 +32,12 @@ snippet doc
 	--------------------------------------------------------------------------------
 
 								   = Documentação: =
+
+	${0}
+snippet ret
+	--------------------------------------------------------------------------------
+
+									  = Retorno: =
 
 	${0}
 snippet t1
@@ -50,5 +56,59 @@ snippet histext
 	{{{
 	${0}
 	}}}
+snippet dd doc defeito
+	=== Doc defeito: ===
+	==== Solução: ====
+	{{{
+	${0}
+	}}}
+snippet build
+	=== Build: ===
+	==== Motivo: ====
+	{{{
+	${1}
+	}}}
+
+	==== Rabal: ====
+	4128
+
+	==== Projeto: ====
+	{{{
+	`input('Projeto: ', 'C:\', 'dir')`
+	}}}
+
+	==== Classes Alteradas: ==== 
+	{{{
+	${2}
+	}}}
+
+	==== Descrição: ====
+	{{{
+	${3}
+	}}}
 snippet tag
 	`toupper(input('tag: ', '', 'custom,vimwiki#tags#complete_tags'))`:${0}
+snippet code
+	{{{`input('Filetype: ', '', 'filetype')`
+	${0}
+	}}}
+snippet java
+	{{{java
+	${0}
+	}}}
+snippet pascal
+	{{{pascal
+	${0}
+	}}}
+snippet delphi
+	{{{pascal
+	${0}
+	}}}
+snippet sql
+	{{{sql
+	${0}
+	}}}
+snippet js
+	{{{javascript
+	${0}
+	}}}
