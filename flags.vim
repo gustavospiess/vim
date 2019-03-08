@@ -66,5 +66,7 @@
       autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
       autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
     augroup END
+
+    set wildmenu
 " ------------------------------------------------------------------------- "
     let g:xml_syntax_folding=1
