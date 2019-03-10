@@ -47,7 +47,7 @@
     Plugin 'ledger/vim-ledger'
 
     " Latex
-    Plugin 'vim-latex/vim-latex'
+    Plugin 'lervag/vimtex'
 
     " Scratch
     Plugin 'mtth/scratch.vim'
