@@ -47,7 +47,6 @@
         autocmd!
         autocmd FileType vimwiki imap <buffer> <tab> <Plug>snipMateNextOrTrigger
         autocmd FileType vimwiki smap <buffer> <tab> <Plug>snipMateNextOrTrigger
-        autocmd FileType vimwiki nmap <buffer> <tab> <Plug>snipMateNextOrTrigger
     augroup end
 
     let g:temp = []
