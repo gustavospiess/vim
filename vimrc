@@ -14,7 +14,7 @@
 "
 "                   leaders (you migth want to change this)
 " ------------------------------------------------------------------------- "
-    let maplocalleader = '-'
+    let maplocalleader = 'ç'
     let mapleader = 'ç'
 " ------------------------------------------------------------------------- "
 
@@ -30,4 +30,6 @@ source ~/.vim/vimwiki_conf.vim
 source ~/.vim/ledger_conf.vim
 source ~/.vim/scratch_conf.vim
 source ~/.vim/snipmate_conf.vim
+source ~/.vim/vimtex_conf.vim
+
 source ~/.vim/ft_config.vim

@@ -1,1 +1,2 @@
 source ~/.vim/ft_config/sql.vim
+source ~/.vim/ft_config/tex.vim
