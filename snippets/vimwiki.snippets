@@ -114,13 +114,20 @@ snippet js
 	}}}
 snippet bosol Boa tarde/Bom dia Solicitante
 	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` `input('Solicitante:')`,
+	
+	Tudo bem?
+	${0}
 snippet bo Boa tarde/Bom dia
 	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')`,
+	
+	Tudo bem?
+	${0}
 snippet prean Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento e está em nossa fila de análise.
 	preanfila
 snippet preanfila Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento e está em nossa fila de análise.
 	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` `input('Solicitante:')`,
 
+	Tudo bem?
 	Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento e está em nossa fila de análise.
 	Assim que houverem novidades estaremos comunicando via histórico.
 snippet prean Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento e está sendo direcionada para o grupo responsável pela integração.
@@ -128,6 +135,7 @@ snippet prean Informamos que sua ordem de serviço foi recebida na equipe de des
 snippet preanint Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento e está sendo direcionada para o grupo responsável pela integração.
 	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` `input('Solicitante:')`,
 
+	Tudo bem?
 	Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento e está sendo direcionada para o grupo responsável pela integração.
 	Assim que houverem novidades estaremos comunicando via histórico.
 snippet prean Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento, verificamos que se trata de uma orientação.
@@ -135,6 +143,7 @@ snippet prean Informamos que sua ordem de serviço foi recebida na equipe de des
 snippet preansup Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento, verificamos que se trata de uma orientação.
 	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` `input('Solicitante:')`,
 
+	Tudo bem?
 	Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento, verificamos que se trata de uma orientação.
 	Desta forma estamos direcionando para o setor de suporte para te auxiliar.
 snippet prean Informamos que a plataforma Tasy em Delphi versão 6 entrou em modo "manutenção" a partir de 04 outubro de 2017 somente executaremos as OS relacionadas a suporte para obrigações legais, segurança e as integrações
@@ -142,11 +151,13 @@ snippet prean Informamos que a plataforma Tasy em Delphi versão 6 entrou em mod
 snippet preandel
 	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` `input('Solicitante:')`,
 
+	Tudo bem?
 	Informamos que a plataforma Tasy em Delphi versão 6 entrou em modo "manutenção" a partir de 04 outubro de 2017 somente executaremos as OS relacionadas a suporte para obrigações legais, segurança e as integrações
 	(mediante orçamento e análise de viabilidade caso não altere código fonte).
 	Entre em contato com a nossa equipe de Pós Vendas para configurar o caminho de migração adequado para a sua instituição e conforme a sua conveniência.
 snippet conttel contato telefonico sem sucesso
 	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` `input('Solicitante:')`,
 
+	Tudo bem?
 	Tentamos contato ${1:telefônico} mas sem sucesso.
 	${0}
