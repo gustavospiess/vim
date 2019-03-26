@@ -65,6 +65,7 @@
                 for operation in g:registerShareOperations 
                     execute 'nnoremap '.operation.' '.operation
                     execute 'vnoremap '.operation.' '.operation
+                    execute 'sunmap '.operation
                 endfor
                 nnoremap <leader>yp :let @" = expand('%:p')<cr>:echo @"<cr>
                 if (a:echo)
@@ -74,6 +75,7 @@
                 for operation in g:registerShareOperations 
                     execute 'nnoremap '.operation.' "+'.operation
                     execute 'vnoremap '.operation.' "+'.operation
+                    execute 'sunmap '.operation
                 endfor
                 nnoremap <leader>yp :let @+ = expand('%:p')<cr>:echo@+<cr>
                 if (a:echo)

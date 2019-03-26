@@ -58,6 +58,9 @@
     Plugin 'garbas/vim-snipmate'
     Plugin 'honza/vim-snippets'
 
+    " Gradle
+    Plugin 'tpope/vim-dispatch'
+
     call vundle#end()
     filetype plugin indent on
 " ------------------------------------------------------------------------- "

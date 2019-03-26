@@ -59,9 +59,16 @@ snippet histext
 snippet dd doc defeito
 	=== Doc defeito: ===
 	==== Solução: ====
-	{{{
+	${1}
+
+	==== os original: ====
+	${2}
+
+	==== data: ====
+	${3}
+
+	==== Responsável: ====
 	${0}
-	}}}
 snippet build
 	=== Build: ===
 	==== Motivo: ====
@@ -113,19 +120,19 @@ snippet js
 	${0}
 	}}}
 snippet bosol Boa tarde/Bom dia Solicitante
-	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` `input('Solicitante:')`,
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:solicitante},
 	
 	Tudo bem?
 	${0}
 snippet bo Boa tarde/Bom dia
-	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')`,
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')`${1},
 	
 	Tudo bem?
 	${0}
 snippet prean Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento e está em nossa fila de análise.
 	preanfila
 snippet preanfila Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento e está em nossa fila de análise.
-	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` `input('Solicitante:')`,
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:solicitante},
 
 	Tudo bem?
 	Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento e está em nossa fila de análise.
@@ -133,7 +140,7 @@ snippet preanfila Informamos que sua ordem de serviço foi recebida na equipe de
 snippet prean Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento e está sendo direcionada para o grupo responsável pela integração.
 	preanint
 snippet preanint Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento e está sendo direcionada para o grupo responsável pela integração.
-	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` `input('Solicitante:')`,
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:Solicitante},
 
 	Tudo bem?
 	Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento e está sendo direcionada para o grupo responsável pela integração.
@@ -141,7 +148,7 @@ snippet preanint Informamos que sua ordem de serviço foi recebida na equipe de 
 snippet prean Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento, verificamos que se trata de uma orientação.
 	preansup
 snippet preansup Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento, verificamos que se trata de uma orientação.
-	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` `input('Solicitante:')`,
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:Solicitante},
 
 	Tudo bem?
 	Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento, verificamos que se trata de uma orientação.
@@ -149,14 +156,33 @@ snippet preansup Informamos que sua ordem de serviço foi recebida na equipe de 
 snippet prean Informamos que a plataforma Tasy em Delphi versão 6 entrou em modo "manutenção" a partir de 04 outubro de 2017 somente executaremos as OS relacionadas a suporte para obrigações legais, segurança e as integrações
 	preandel
 snippet preandel
-	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` `input('Solicitante:')`,
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:Solicitante},
 
 	Tudo bem?
 	Informamos que a plataforma Tasy em Delphi versão 6 entrou em modo "manutenção" a partir de 04 outubro de 2017 somente executaremos as OS relacionadas a suporte para obrigações legais, segurança e as integrações
 	(mediante orçamento e análise de viabilidade caso não altere código fonte).
 	Entre em contato com a nossa equipe de Pós Vendas para configurar o caminho de migração adequado para a sua instituição e conforme a sua conveniência.
-snippet conttel contato telefonico sem sucesso
-	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` `input('Solicitante:')`,
+snippet prean Algum rettorno quanto ao último histórico?
+	preanret
+snippet preanret
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:Solicitante},
+
+	Tudo bem?
+	Algum rettorno quanto ao último histórico?
+
+	$0
+snippet prean Estanos no aguardo. Quaisquer dúvidas podes entrar em contato por meio de histórico.
+	preanagu
+snippet preanagu
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:Solicitante},
+
+	Tudo bem?
+	Estamos no aguardo.
+	Quaisquer dúvidas podes entrar em contato por meio de histórico.
+snippet prean contato telefonico sem sucesso
+	preantel
+snippet preantel contato telefonico sem sucesso
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:Solicitante},
 
 	Tudo bem?
 	Tentamos contato ${1:telefônico} mas sem sucesso.
