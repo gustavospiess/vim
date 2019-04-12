@@ -104,6 +104,9 @@
         onoremap iz :normal viz<CR>
 
 
-    "
+    " Change navigation
+        nnoremap , g,
+        nnoremap ; g;
+        nnoremap g, ,
 
 " ------------------------------------------------------------------------- "
