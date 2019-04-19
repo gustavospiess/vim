@@ -61,11 +61,13 @@
     " Gradle
     Plugin 'tpope/vim-dispatch'
 
+<<<<<<< HEAD
     " Marks
     Plugin 'vim-scripts/tmarks'
-
+=======
     " Markdown
     Plugin 'gabrielelana/vim-markdown'
+>>>>>>> 72329e22f070af62dcf29bb4d89c5d7faafac2ba
 
     call vundle#end()
     filetype plugin indent on
