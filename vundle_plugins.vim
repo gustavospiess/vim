@@ -61,6 +61,9 @@
     " Gradle
     Plugin 'tpope/vim-dispatch'
 
+    " Marks
+    Plugin 'vim-scripts/tmarks'
+
     call vundle#end()
     filetype plugin indent on
 " ------------------------------------------------------------------------- "
