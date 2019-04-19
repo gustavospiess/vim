@@ -120,10 +120,9 @@ snippet js
 	${0}
 	}}}
 snippet bo Boa tarde/Bom dia
-	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1},
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')`${1},
 	
-	Tudo bem?
-	${0}
+	${2:Tudo bem?}${0}
 snippet prean Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento e está em nossa fila de análise.
 	preanfila
 snippet preanfila Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento e está em nossa fila de análise.
@@ -196,37 +195,41 @@ snippet preanquest contato telefonico sem sucesso
 
 	Tudo bem?
 	Para melhor análise da sua ordem de serviço seguem alguns questionamentos:
-	${2}
+
+	${0}
 snippet q Como este processo é realizado atualmente?
 	Como este processo é realizado atualmente?
-	${1}
+	${0}
 snippet q Como seria realizado o processo com a alteração?
 	Como seria realizado o processo com a alteração?
-	${1}
+	${0}
 snippet q Podes encaminhar um vídeo/print do problema para melhor análise?
 	Podes encaminhar um vídeo/print do problema para melhor análise?
-	${1}
+	${0}
 snippet q Podes encaminhar os parâmetros utilizados no processo onde o erro acontece?
 	Podes encaminhar os parâmetros utilizados no processo onde o erro acontece?
-	${1}
+	${0}
 snippet q O problema ocorre em todos os casos, é esporádico ou foi identificado que ocorre apenas em uma situação específica?
 	O problema ocorre em todos os casos, é esporádico ou foi identificado que ocorre apenas em uma situação específica?
-	${1}
+	${0}
 snippet q O problema passou a ocorrer depois de alguma determinada atualização ou alteração de configuração?
 	O problema passou a ocorrer depois de alguma determinada atualização ou alteração de configuração?
-	${1}
+	${0}
 snippet q Como esta situação tem impacta hoje?
 	Como esta situação tem impacta hoje?
-	${1}
+	${0}
 snippet q Podes confirmar qual a plataforma em uso (Java/Delphi/HTML)?
 	Podes confirmar qual a plataforma em uso (Java/Delphi/HTML)?
-	${1}
+	${0}
 snippet q Podes encaminhar o retorno do(s) select(s) a seguir?
 	Podes encaminhar o retorno do${1:s} select$1 a seguir?
-	${2}
+	${0}
 snippet q O problema ocorre ao executar o relatório pela função Gerenciador de Relatórios?
 	O problema ocorre ao executar o relatório pela função Gerenciador de Relatórios?
-	${2}
+	${0}
+snippet q O problema é simulável em base de homologação ou apenas em produção?
+	O problema é simulável em base de homologação ou apenas em produção?
+	${0}
 snippet q Qual o relatório utilizado neste caso?
 	Qual o relatório utilizado neste caso?
-	${2}
+	${0}
