@@ -68,5 +68,9 @@
     augroup END
 
     set wildmenu
+
+    "yank and past to/from clipboard
+    set clipboard=unnamed
+
 " ------------------------------------------------------------------------- "
     let g:xml_syntax_folding=1
