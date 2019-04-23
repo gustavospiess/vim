@@ -34,7 +34,8 @@
     "set filetype
         let g:defautFiletype = ''
         function! GetDefaultFiletype()
-            let g:defautFiletype = input('filetype: ', g:defautFiletype, 'filetype')
+            "let g:defautFiletype = input('filetype: ', g:defautFiletype, 'filetype')
+            let g:defautFiletype = tlib#input#List('s', 'filetype: ', getcompletion('', 'filetype'), [], g:defautFiletype)
             return g:defautFiletype
         endfunction
         nnoremap <leader>ft :let &filetype=GetDefaultFiletype()<cr>
