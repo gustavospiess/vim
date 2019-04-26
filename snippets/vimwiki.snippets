@@ -187,3 +187,18 @@ snippet preantel contato telefonico sem sucesso
 	Tudo bem?
 	Tentamos contato ${1:telefônico} mas sem sucesso.
 	${0}
+snippet prean Devido ao tempo de inatividade a ordem de serviço foi fechada automaticamente.
+	preanreab
+snippet preanreab Devido ao tempo de inatividade a ordem de serviço foi fechada automaticamente.
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:Solicitante},
+
+	Tudo bem?
+	Devido ao tempo de inatividade a ordem de serviço foi fechada automaticamente.
+	Podes realizar a abertura de uma nova ordem de serviço?
+snippet prean Conforme solicitado, foi realizado o envio para o email 'email'.
+	preanemail
+snippet preanemail Conforme solicitado, foi realizado o envio para o email 'email'.
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:Solicitante},
+
+	Tudo bem?
+	Conforme solicitado, foi realizado o envio para o email '${2:email}'.
