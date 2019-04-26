@@ -34,7 +34,8 @@
     "set filetype
         let g:defautFiletype = ''
         function! GetDefaultFiletype()
-            let g:defautFiletype = input('filetype: ', g:defautFiletype, 'filetype')
+            "let g:defautFiletype = input('filetype: ', g:defautFiletype, 'filetype')
+            let g:defautFiletype = tlib#input#List('s', 'filetype: ', getcompletion('', 'filetype'), [], g:defautFiletype)
             return g:defautFiletype
         endfunction
         nnoremap <leader>ft :let &filetype=GetDefaultFiletype()<cr>
@@ -56,37 +57,6 @@
         nnoremap <leader>ts :setlocal buftype=nofile<cr>
         nnoremap <leader>nf <C-w>n
         nnoremap <leader>ns <C-w>n:setlocal buftype=nofile<cr>
-
-    " register share toggle
-        let g:registerShare = 0
-        let g:registerShareOperations = ['y','Y','p','P','d','D','c','C','x','X','r','s']
-        function! RegisterShareToggle(echo)
-            if g:registerShare
-                for operation in g:registerShareOperations 
-                    execute 'nnoremap '.operation.' '.operation
-                    execute 'vnoremap '.operation.' '.operation
-                    execute 'sunmap '.operation
-                endfor
-                nnoremap <leader>yp :let @" = expand('%:p')<cr>:echo @"<cr>
-                if (a:echo)
-                    echo 'not sharing registers'
-                endif
-            else
-                for operation in g:registerShareOperations 
-                    execute 'nnoremap '.operation.' "+'.operation
-                    execute 'vnoremap '.operation.' "+'.operation
-                    execute 'sunmap '.operation
-                endfor
-                nnoremap <leader>yp :let @+ = expand('%:p')<cr>:echo@+<cr>
-                if (a:echo)
-                    echo 'sharing registers'
-                endif
-            endif
-            let g:registerShare = !g:registerShare
-        endfunction
-        nnoremap <leader>+ :call RegisterShareToggle(1)<cr>
-
-        call RegisterShareToggle(0)
 
     " undo
         inoremap <cr> <C-g>u<cr>
