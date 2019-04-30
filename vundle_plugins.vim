@@ -54,7 +54,6 @@
 
     "Snipets
     Plugin 'MarcWeber/vim-addon-mw-utils'
-    Plugin 'tomtom/tlib_vim'
     Plugin 'garbas/vim-snipmate'
     Plugin 'honza/vim-snippets'
 
@@ -66,6 +65,16 @@
 
     " Markdown
     Plugin 'gabrielelana/vim-markdown'
+
+    " Comment as object
+    Plugin 'glts/vim-textobj-comment'
+
+    " Comment as action
+    Plugin 'tomtom/tcomment_vim'
+
+    "Required by other pluggins
+    Plugin 'tomtom/tlib_vim'
+    Plugin 'vim-textobj-user'
 
     call vundle#end()
     filetype plugin indent on
