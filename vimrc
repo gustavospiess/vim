@@ -35,3 +35,5 @@ source ~/.vim/vimtex_conf.vim
 source ~/.vim/comment_conf.vim
 
 source ~/.vim/ft_config.vim
+
+source ~/.vim/evaluate.vim
