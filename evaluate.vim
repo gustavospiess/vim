@@ -23,25 +23,25 @@ function! Eval_operator(type)
 
     try
         let l:value = eval(substitute(@@, '\v[ \t\n]', '', 'g'))
-
-        if g:eval_delete
-            call Eval_reselect(a:type)
-            if g:eval_put
-                silent exe "normal! c".l:value.expand("<esc>")
-            else
-                silent exe "normal! d"
-            endif
-        elseif g:eval_put
-            normal k
-            put=l:value
-        endif
-        if g:eval_print
-            echo l:value
-        endif
-
     catch /.*/
         echo 'erro evaluating: '.@@
     endtry
+
+    if g:eval_delete
+        call Eval_reselect(a:type)
+        if g:eval_put
+            silent exe "normal! c".string(l:value).expand("<esc>")
+        else
+            silent exe "normal! d"
+        endif
+    elseif g:eval_put
+        normal k
+        put=string(l:value)
+    endif
+    if g:eval_print
+        echo string(l:value)
+    endif
+
     let &selection = sel_save
     let @@ = reg_save
 endf

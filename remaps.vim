@@ -73,10 +73,4 @@
         xnoremap iz :<C-U>silent!normal![zV]z<CR>
         onoremap iz :normal viz<CR>
 
-
-    " Change navigation
-        nnoremap , g,
-        nnoremap ; g;
-        nnoremap g, ,
-
 " ------------------------------------------------------------------------- "
