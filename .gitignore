@@ -4,3 +4,8 @@ bundle/*
 bundle/**.*
 backup/*
 tmp/*
+
+bundle/Vundle.vim/**.*
+bundle/vim-airline/**.*
+bundle/vim-spell-pt-br/**.*
+
