@@ -1,0 +1,42 @@
+snippet @ "uml header"
+	@startuml
+	${0}
+	@enduml
+snippet par "participant"
+	participant ${0}
+snippet ac "activate/deactivate"
+	activate $1
+	${0}
+	deactivate ${1:participant}
+snippet cl "class"
+	class ${1}{
+		${0}
+	}
+snippet pk "primary key"
+	nr_${1} <pk> :number
+	${0}
+snippet fk "foreign key"
+	nr_${1} <fk> :number
+	${0}
+snippet ? "zero to one"
+	"0..1"
+snippet + "one to many"
+	"1..*"
+snippet * "zero to many"
+	"0..*"
+snippet 1 "zero"
+	"1"
+snippet note "note left"
+	note left
+		${0}
+	end note
+snippet notel "note left"
+	note left
+		${0}
+	end note
+snippet noter "note right"
+	note right
+		${0}
+	end note
+snippet use "usecase ____ as \"___\""
+	usecase ${1:uc01} as "$1\n..\n${2}"
