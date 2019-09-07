@@ -77,9 +77,13 @@
     Plugin 'scrooloose/vim-slumlord'
     Plugin 'aklt/plantuml-syntax'
 
+    " Replace with registry
+    Plugin 'vim-scripts/ReplaceWithRegister'
+
     "Required by other pluggins
     Plugin 'tomtom/tlib_vim'
     Plugin 'kana/vim-textobj-user'
+    Plugin 'tpope/vim-repeat'
 
     call vundle#end()
     filetype plugin indent on
