@@ -80,10 +80,14 @@
     " Replace with registry
     Plugin 'vim-scripts/ReplaceWithRegister'
 
+    " Ctags
+    Plugin 'xolox/vim-easytags'
+
     "Required by other pluggins
     Plugin 'tomtom/tlib_vim'
     Plugin 'kana/vim-textobj-user'
     Plugin 'tpope/vim-repeat'
+    Plugin 'xolox/vim-misc'
 
     call vundle#end()
     filetype plugin indent on
