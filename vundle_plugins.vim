@@ -73,6 +73,10 @@
     " Comment as action
     Plugin 'tomtom/tcomment_vim'
 
+    " Plant UML
+    Plugin 'scrooloose/vim-slumlord'
+    Plugin 'aklt/plantuml-syntax'
+
     "Required by other pluggins
     Plugin 'tomtom/tlib_vim'
     Plugin 'kana/vim-textobj-user'
