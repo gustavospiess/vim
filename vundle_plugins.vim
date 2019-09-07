@@ -1,5 +1,6 @@
 "                                    Vundle
 " ------------------------------------------------------------------------- "
+    filetype off
     set rtp+=~/.vim/bundle/Vundle.vim
     call vundle#begin()
 
@@ -74,7 +75,7 @@
 
     "Required by other pluggins
     Plugin 'tomtom/tlib_vim'
-    Plugin 'vim-textobj-user'
+    Plugin 'kana/vim-textobj-user'
 
     call vundle#end()
     filetype plugin indent on
