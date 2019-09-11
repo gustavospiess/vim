@@ -9,14 +9,18 @@ snippet ac "activate/deactivate"
 	${0}
 	deactivate ${1:participant}
 snippet cl "class"
-	class ${1}{
+	class ${1} {
+		${0}
+	}
+snippet tb "table"
+	entity ${1} {
 		${0}
 	}
 snippet pk "primary key"
-	nr_${1} <pk> :number
+	nr_${1} <<pk>> :number
 	${0}
 snippet fk "foreign key"
-	nr_${1} <fk> :number
+	nr_${1} <<fk>> :number
 	${0}
 snippet ? "zero to one"
 	"0..1"
