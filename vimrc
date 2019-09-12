@@ -47,4 +47,12 @@ source ~/.vim/evaluate.vim
 
 set thesaurus=~\.vim\base_tep2\antonimos.txt,~\.vim\base_tep2\sinonimos.txt
 
+" TODO: configurar na flags.vim
+set complete=.,w,b,t,u,i,kspell,s
+
+" TODO: create file to configure it
+let g:easytags_suppress_ctags_warning=1
+let g:easytags_async=1
+let g:easytags_auto_highlight=0
+
 " ---------------------------------------------------------------------------- "
