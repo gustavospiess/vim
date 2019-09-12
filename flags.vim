@@ -51,6 +51,7 @@
     endif
 
     set spelllang=pt_br,en_us
+    set complete=.,w,t,b,u,U,i,d,kspell
 
     set grepprg=git\ grep
     colorscheme onedark

@@ -55,4 +55,7 @@ let g:easytags_suppress_ctags_warning=1
 let g:easytags_async=1
 let g:easytags_auto_highlight=0
 
+let g:markdown_enable_insert_mode_mappings=0
+
 " ---------------------------------------------------------------------------- "
+
