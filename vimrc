@@ -38,8 +38,6 @@ source ~/.vim/ft_config.vim
 
 source ~/.vim/menu_test.vim
 
-source ~/.vim/evaluate.vim
-
 " ---------------------------------------------------------------------------- "
 
 " TODO: criar como pluggin
@@ -57,5 +55,6 @@ let g:easytags_auto_highlight=0
 
 let g:markdown_enable_insert_mode_mappings=0
 
+let g:crunch_result_type_append = 0
 " ---------------------------------------------------------------------------- "
 

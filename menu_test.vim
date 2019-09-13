@@ -5,7 +5,6 @@ endfunction
 let g:yankMenuRegister = '+'
 
 let g:menu = [NewMenuItenm('Yank file path', 'let @'.g:yankMenuRegister.' = expand(''%:p'') | echo @'.g:yankMenuRegister, 'p'),
-                \NewMenuItenm('Yank all', '%yank'.g:yankMenuRegister, 'a'),
                 \NewMenuItenm('Yank folder path', 'let @'.g:yankMenuRegister.' = expand(''%:h'') | echo @'.g:yankMenuRegister, 'f')]
 
 let g:menuDesc = []
