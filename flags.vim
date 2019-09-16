@@ -73,5 +73,7 @@
     "yank and past to/from clipboard
     set clipboard=unnamed
 
+    set incsearch
+
 " ------------------------------------------------------------------------- "
     let g:xml_syntax_folding=1
