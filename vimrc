@@ -44,6 +44,7 @@ source ~/.vim/menu_test.vim
 " TODO: referenciar http://www.nilc.icmc.usp.br/tep2/download.htm
 
 set thesaurus=~\.vim\base_tep2\antonimos.txt,~\.vim\base_tep2\sinonimos.txt
+source ~/.vim/thesaurus.vim
 
 " TODO: create file to configure it
 let g:easytags_suppress_ctags_warning=1

@@ -12,6 +12,7 @@
                 \'json' : 'json',
                 \'javascript': 'javascript',
                 \'java': 'java',
+                \'jsp': 'jsp',
                 \'html': 'html',
                 \'diff': 'diff',
                 \'css': 'css'}

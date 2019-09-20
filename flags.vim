@@ -30,43 +30,25 @@
     set autowrite
 
     set nocompatible
-    set backup "no backup
+    set backup
 
     set scrolloff=7
 
     set undofile
     set undolevels=3000
 
-    if !empty(glob("~/.vim/vimrc"))
-        " for unix-like separator
-        set backupdir=~/.vim/backup//
-        set directory=~/.vim/swap//
-        set undodir=~/.vim/undo//
-    endif
-    if !empty(glob("~\.vim\vimrc"))
-        " for windows like separator
-        set backupdir=~\.vim\backup\\
-        set directory=~\.vim\swap\\
-        set undodir=~\.vim\undo\\
-    endif
+    set backupdir=~\.vim\backup\\
+    set directory=~\.vim\swap\\
+    set undodir=~\.vim\undo\\
 
     set spelllang=pt_br,en_us
     set complete=.,w,t,b,u,U,i,d,kspell
 
-    set grepprg=git\ grep
     colorscheme onedark
 
     set diffopt+=iwhite
 
     set number relativenumber
-
-    "set comments=''
-
-    augroup numbertoggle
-      autocmd!
-      autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-      autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-    augroup END
 
     set wildmenu
 
