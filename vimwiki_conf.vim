@@ -15,6 +15,7 @@
                 \'jsp': 'jsp',
                 \'html': 'html',
                 \'diff': 'diff',
+                \'bash': 'sh',
                 \'css': 'css'}
     let g:vimwiki_list = [wiki]
     let g:vimwiki_folding = 'syntax'
