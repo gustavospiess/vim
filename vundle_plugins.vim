@@ -88,5 +88,4 @@
         Plugin 'arecarn/vim-selection'
 
     call vundle#end()
-    filetype plugin indent on
 " ------------------------------------------------------------------------- "

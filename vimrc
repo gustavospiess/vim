@@ -33,6 +33,7 @@ source ~/.vim/scratch_conf.vim
 source ~/.vim/snipmate_conf.vim
 source ~/.vim/vimtex_conf.vim
 source ~/.vim/comment_conf.vim
+source ~/.vim/easytags_conf.vim
 
 source ~/.vim/ft_config.vim
 
@@ -43,16 +44,12 @@ source ~/.vim/menu_test.vim
 " TODO: criar como pluggin
 " TODO: referenciar http://www.nilc.icmc.usp.br/tep2/download.htm
 
-set thesaurus=~\.vim\base_tep2\antonimos.txt,~\.vim\base_tep2\sinonimos.txt
 source ~/.vim/thesaurus.vim
 
-" TODO: create file to configure it
-let g:easytags_suppress_ctags_warning=1
-let g:easytags_async=1
-let g:easytags_auto_highlight=0
+" ---------------------------------------------------------------------------- "
 
-let g:markdown_enable_insert_mode_mappings=0
+" TODO: move to propper file
 
-let g:crunch_result_type_append = 0
+
 " ---------------------------------------------------------------------------- "
 

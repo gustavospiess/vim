@@ -42,7 +42,7 @@
     set undodir=~\.vim\undo\\
 
     set spelllang=pt_br,en_us
-    set complete=.,w,t,b,u,U,i,d,kspell
+    set complete=.,w,t,b,u,i,kspell,s
 
     colorscheme onedark
 
@@ -57,5 +57,10 @@
 
     set incsearch
 
+    filetype plugin indent on
+    syntax on
+
 " ------------------------------------------------------------------------- "
+"
     let g:xml_syntax_folding=1
+    let g:crunch_result_type_append = 0
