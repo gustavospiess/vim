@@ -1,16 +1,69 @@
-snippet selinto select into
+snippet sel select
 	select
-		${1}
-	into
-		${2}
+	    ${0}
+	 
+snippet se select
+	select
+	    ${0}
+	 
+snippet s select
+	select
+	    ${0}
+	 
+snippet fro from
 	from
-		${3}
+	    ${0}
+	 
+snippet fr from
+	from
+	    ${0}
+	 
+snippet f from
+	from
+	    ${0}
+	 
+snippet inn
+	inner join ${1} ${2} on (${3})
+	${0}
+snippet lef
+	left outer join ${1} ${2} on (${3})
+	${0}
+snippet whe where
 	where
-		${0};
-snippet orcon or
-	((${1}) or
-	 (${2})) and
+	    ${0}
+	 
+snippet wh where
+	where
+	    ${0}
+	 
+snippet w where
+	where
+	    ${0}
+	 
+snippet an and
+	and
 	${0}
-snippet con condition
-	${1} and
+snippet a and
+	and
 	${0}
+snippet o or
+	or
+	${0}
+snippet st start with
+	start with
+	    ${0}
+snippet c connect by
+	connect by ${1:nocycle }${2:prior}
+	    ${0}
+snippet co connect by
+	connect by ${1:nocycle }${2:prior}
+	    ${0}
+snippet gr group by
+	group by
+	    ${0}
+snippet g group by
+	group by
+	    ${0}
+snippet or order by
+	order by
+	    ${0}

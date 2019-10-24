@@ -1,18 +1,18 @@
 snippet os
-									  = ${1:OS number} =
+									  = `expand('%:t:r')` =
 
 	== Descrição: ==
-	${2:OS desc}
+	${1:OS desc}
 
 	== Detalhamento: ==
-	${0:OS det}
+	${3:OS det}
 
 	== Solicitante: ==
-	${3:solic}
+	${2:solic}
 
 	--------------------------------------------------------------------------------
 
-	:OS:${4}
+	:OS:${0}
 snippet an
 	--------------------------------------------------------------------------------
 
@@ -40,12 +40,6 @@ snippet ret
 									  = Retorno: =
 
 	${0}
-snippet t1
-	= ${0} =
-snippet t2
-	== ${0} ==
-snippet t3
-	=== ${0} ===
 snippet histint
 	=== Histórico Interno: ===
 	{{{
@@ -115,8 +109,16 @@ snippet sql
 	{{{sql
 	${0}
 	}}}
+snippet javascript
+	{{{javascript
+	${0}
+	}}}
 snippet js
 	{{{javascript
+	${0}
+	}}}
+snippet xml
+	{{{xml
 	${0}
 	}}}
 snippet bo Boa tarde/Bom dia

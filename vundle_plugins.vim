@@ -35,8 +35,10 @@
     " Looking :
         " status row:
         Plugin 'vim-airline/vim-airline'
-        " color schema:
+        " color schemas:
         Plugin 'joshdick/onedark.vim'
+        " Plugin 'vim-scripts/oceanlight'
+        Plugin 'altercation/vim-colors-solarized'
 
     " Objects:
         " indentation object:
