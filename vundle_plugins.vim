@@ -7,8 +7,9 @@
     " plugin manager:
     Plugin 'VundleVim/Vundle.vim'
 
-    " panels and folder navigation:
-    Plugin 'mihaifm/vimpanel'
+    " fuzzy finder
+    Plugin 'junegunn/fzf.vim'
+    Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
     " data base access:
     Plugin 'vim-scripts/dbext.vim'
@@ -18,9 +19,6 @@
 
     " Matching:
     Plugin 'tmhedberg/matchit'
-
-    " C_tags:
-    Plugin 'xolox/vim-easytags'
 
     " Tasks:
     Plugin 'tpope/vim-dispatch'
