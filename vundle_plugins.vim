@@ -60,7 +60,7 @@
         " Latex:
         Plugin 'lervag/vimtex'
         " Markdown:
-        Plugin 'gabrielelana/vim-markdown'
+        Plugin 'plasticboy/vim-markdown'
         " Plant UML:
         Plugin 'scrooloose/vim-slumlord'
         Plugin 'aklt/plantuml-syntax'
@@ -88,6 +88,7 @@
         Plugin 'tpope/vim-repeat'
         Plugin 'xolox/vim-misc'
         Plugin 'arecarn/vim-selection'
+        Plugin 'godlygeek/tabular'
 
     call vundle#end()
 " ------------------------------------------------------------------------- "

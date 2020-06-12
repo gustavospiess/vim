@@ -4,14 +4,19 @@ endfunction
 
 let g:yankMenuRegister = '+'
 
-let g:menu = [NewMenuItenm('Yank file path', 'let @'.g:yankMenuRegister.' = expand(''%:p'') | echo @'.g:yankMenuRegister, 'p'),
-                \NewMenuItenm('Yank folder path', 'let @'.g:yankMenuRegister.' = expand(''%:h'') | echo @'.g:yankMenuRegister, 'f')]
+let g:menu = [   NewMenuItenm('Yank file path',              'let @'.g:yankMenuRegister.' = expand(''%:p'')    | let @" = @'.g:yankMenuRegister.' | let @0 = @'.g:yankMenuRegister.' | echo @'.g:yankMenuRegister, 'p'),
+                \NewMenuItenm('Yank folder path',            'let @'.g:yankMenuRegister.' = expand(''%:h'')    | let @" = @'.g:yankMenuRegister.' | let @0 = @'.g:yankMenuRegister.' | echo @'.g:yankMenuRegister, 'f'),
+                \NewMenuItenm('Yank fine name no extension', 'let @'.g:yankMenuRegister.' = expand(''%:t:r'')  | let @" = @'.g:yankMenuRegister.' | let @0 = @'.g:yankMenuRegister.' | echo @'.g:yankMenuRegister, 'N'),
+                \NewMenuItenm('Yank file name',              'let @'.g:yankMenuRegister.' = expand(''%:t'')    | let @" = @'.g:yankMenuRegister.' | let @0 = @'.g:yankMenuRegister.' | echo @'.g:yankMenuRegister, 'n'),
+                \NewMenuItenm('Yank file extension',         'let @'.g:yankMenuRegister.' = expand(''%:e'')    | let @" = @'.g:yankMenuRegister.' | let @0 = @'.g:yankMenuRegister.' | echo @'.g:yankMenuRegister, 'e'),
+                \NewMenuItenm('Yank current working dir',    'let @'.g:yankMenuRegister.' = getcwd()           | let @" = @'.g:yankMenuRegister.' | let @0 = @'.g:yankMenuRegister.' | echo @'.g:yankMenuRegister, 'd')
+            \]
 
 let g:menuDesc = []
 let g:menuCmd = []
 
 for menuItem in g:menu
-    call add(g:menuDesc, menuItem.desc.' (çy'.menuItem['bind'].')')
+    call add(g:menuDesc, menuItem.desc.' ('.mapleader.'y'.menuItem['bind'].')')
     call add(g:menuCmd, menuItem.cmd)
 endfor
 
