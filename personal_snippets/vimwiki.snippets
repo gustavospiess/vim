@@ -1,0 +1,252 @@
+snippet os
+									  = ${1:OS number} =
+
+	== Descrição: ==
+	${2:OS desc}
+
+	== Detalhamento: ==
+	${0:OS det}
+
+	== Solicitante: ==
+	${3:solic}
+
+	--------------------------------------------------------------------------------
+
+	:OS:${4}
+snippet an
+	--------------------------------------------------------------------------------
+
+									  = Análise: =
+
+	${0}
+snippet prevan
+	== Análise (${1:Suporte}) ==
+	${0}
+snippet al
+	--------------------------------------------------------------------------------
+
+									= Alterações: =
+
+	${0}
+snippet doc
+	--------------------------------------------------------------------------------
+
+								   = Documentação: =
+
+	${0}
+snippet ret
+	--------------------------------------------------------------------------------
+
+									  = Retorno: =
+
+	${0}
+snippet t1
+	= ${0} =
+snippet t2
+	== ${0} ==
+snippet t3
+	=== ${0} ===
+snippet histint
+	=== Histórico Interno: ===
+	{{{
+	${0}
+	}}}
+snippet histext
+	=== Histórico Externo: ===
+	{{{
+	${0}
+	}}}
+snippet dd doc defeito
+	=== Doc defeito: ===
+	==== Solução: ====
+	${1}
+
+	==== os original: ====
+	${2}
+
+	==== data: ====
+	${3}
+
+	==== Responsável: ====
+	${0}
+snippet build
+	=== Build: ===
+	==== Motivo: ====
+	{{{
+	${1}
+	}}}
+
+	==== Ramal: ====
+	4124
+
+	==== Projeto: ====
+	{{{
+	`input('Projeto: ', 'C:\', 'dir')`
+	}}}
+
+	==== Classes Alteradas: ====
+	{{{
+	${2}
+	}}}
+
+	==== Descrição: ====
+	{{{
+	${3}
+	}}}
+snippet tag
+	`toupper(input('tag: ', '', 'custom,vimwiki#tags#complete_tags'))`:${0}
+snippet code
+	{{{`input('Filetype: ', '', 'filetype')`
+	${0}
+	}}}
+snippet java
+	{{{java
+	${0}
+	}}}
+snippet pascal
+	{{{pascal
+	${0}
+	}}}
+snippet delphi
+	{{{pascal
+	${0}
+	}}}
+snippet sql
+	{{{sql
+	${0}
+	}}}
+snippet js
+	{{{javascript
+	${0}
+	}}}
+snippet bo Boa tarde/Bom dia
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')`${1},
+	
+	${2:Tudo bem?}${0}
+snippet prean Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento e está em nossa fila de análise.
+	preanfila
+snippet preanfila Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento e está em nossa fila de análise.
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:solicitante},
+
+	Tudo bem?
+	Informamos que sua ordem de serviço ${2:foi recebida na equipe de desenvolvimento e }está em nossa fila de análise.
+	Assim que houverem novidades estaremos comunicando via histórico.
+snippet prean Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento e está sendo direcionada para o grupo responsável pela integração.
+	preanint
+snippet preanint Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento e está sendo direcionada para o grupo responsável pela integração.
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:Solicitante},
+
+	Tudo bem?
+	Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento e está sendo direcionada para o grupo responsável pela integração.
+	Assim que houverem novidades estaremos comunicando via histórico.
+snippet prean Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento, verificamos que se trata de uma orientação.
+	preansup
+snippet preansup Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento, verificamos que se trata de uma orientação.
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:Solicitante},
+
+	Tudo bem?
+	Informamos que sua ordem de serviço foi recebida na equipe de desenvolvimento, verificamos que se trata de uma orientação.
+	Desta forma estamos direcionando para o setor de suporte para te auxiliar.
+snippet prean Informamos que a plataforma Tasy em Delphi versão 6 entrou em modo "manutenção" a partir de 04 outubro de 2017 somente executaremos as OS relacionadas a suporte para obrigações legais, segurança e as integrações
+	preandel
+snippet preandel
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:Solicitante},
+
+	Tudo bem?
+	Informamos que a plataforma Tasy em Delphi versão 6 entrou em modo "manutenção" a partir de 04 outubro de 2017 somente executaremos as OS relacionadas a suporte para obrigações legais, segurança e as integrações
+	(mediante orçamento e análise de viabilidade caso não altere código fonte).
+	Entre em contato com a nossa equipe de Pós Vendas para configurar o caminho de migração adequado para a sua instituição e conforme a sua conveniência.
+snippet prean Algum retorno quanto ao último histórico?
+	preanret
+snippet preanret
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:Solicitante},
+
+	Tudo bem?
+	Algum retorno quanto ao último histórico?
+
+	$0
+snippet prean Estanos no aguardo. Quaisquer dúvidas podes entrar em contato por meio de histórico.
+	preanagu
+snippet preanagu
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:Solicitante},
+
+	Tudo bem?
+	Estamos no aguardo${2}.
+	Quaisquer dúvidas podes entrar em contato por meio de histórico.
+snippet prean contato telefonico sem sucesso
+	preantel
+snippet preantel contato telefonico sem sucesso
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:Solicitante},
+
+	Tudo bem?
+	Tentamos contato ${1:telefônico} mas sem sucesso.
+	${0}
+snippet prean Podes dar continuidade à analise realizada?
+	preancont
+snippet preancont Podes dar continuidade à analise realizada?
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:Analista},
+
+	Tudo bem?
+	Podes dar continuidade à analise realizada?
+snippet prean Para melhor análise da sua ordem de serviço seguem alguns questionamentos
+	preanquest
+snippet preanquest contato telefonico sem sucesso
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:Solicitante},
+
+	Tudo bem?
+	Para melhor análise da sua ordem de serviço seguem alguns questionamentos:
+
+	${0}
+snippet q Como este processo é realizado atualmente?
+	Como este processo é realizado atualmente?
+	${0}
+snippet q Como seria realizado o processo com a alteração?
+	Como seria realizado o processo com a alteração?
+	${0}
+snippet q Podes encaminhar um vídeo/print do problema para melhor análise?
+	Podes encaminhar um vídeo/print do problema para melhor análise?
+	${0}
+snippet q Podes encaminhar os parâmetros utilizados no processo onde o erro acontece?
+	Podes encaminhar os parâmetros utilizados no processo onde o erro acontece?
+	${0}
+snippet q O problema ocorre em todos os casos, é esporádico ou foi identificado que ocorre apenas em uma situação específica?
+	O problema ocorre em todos os casos, é esporádico ou foi identificado que ocorre apenas em uma situação específica?
+	${0}
+snippet q O problema passou a ocorrer depois de alguma determinada atualização ou alteração de configuração?
+	O problema passou a ocorrer depois de alguma determinada atualização ou alteração de configuração?
+	${0}
+snippet q Como esta situação tem impacta hoje?
+	Como esta situação tem impacta hoje?
+	${0}
+snippet q Podes confirmar qual a plataforma em uso (Java/Delphi/HTML)?
+	Podes confirmar qual a plataforma em uso (Java/Delphi/HTML)?
+	${0}
+snippet q Podes encaminhar o retorno do(s) select(s) a seguir?
+	Podes encaminhar o retorno do${1:s} select$1 a seguir?
+	${0}
+snippet q O problema ocorre ao executar o relatório pela função Gerenciador de Relatórios?
+	O problema ocorre ao executar o relatório pela função Gerenciador de Relatórios?
+	${0}
+snippet q O problema é simulável em base de homologação ou apenas em produção?
+	O problema é simulável em base de homologação ou apenas em produção?
+	${0}
+snippet q Qual o relatório utilizado neste caso?
+	Qual o relatório utilizado neste caso?
+	${0}
+snippet prean Devido ao tempo de inatividade a ordem de serviço foi fechada automaticamente.
+	preanreab
+snippet preanreab Devido ao tempo de inatividade a ordem de serviço foi fechada automaticamente.
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:Solicitante},
+
+	Tudo bem?
+	Devido ao tempo de inatividade a ordem de serviço foi fechada automaticamente.
+	Podes realizar a abertura de uma nova ordem de serviço?
+snippet prean Conforme solicitado, foi realizado o envio para o email 'email'.
+	preanemail
+snippet preanemail Conforme solicitado, foi realizado o envio para o email 'email'.
+	`Ternario(GetHora()>11, 'Boa tarde', 'Bom dia')` ${1:Solicitante},
+
+	Tudo bem?
+	Conforme solicitado, foi realizado o envio para o email '${2:email}'.
+snippet param "[000] - Descrição do parâmetro"
+	[${1:00}] - ${2:Descrição do parâmetro}${0}

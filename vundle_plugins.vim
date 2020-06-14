@@ -65,9 +65,10 @@
 
     " Snippets:
         " Snippet engine:
-        Plugin 'MarcWeber/vim-addon-mw-utils'
+        " Plugin 'MarcWeber/vim-addon-mw-utils'
+        Plugin 'SirVer/ultisnips'
         " Snippet base:
-        Plugin 'garbas/vim-snipmate'
+        " Plugin 'garbas/vim-snipmate'
         Plugin 'honza/vim-snippets'
 
     " Pending operator actions:
@@ -79,6 +80,12 @@
         Plugin 'arecarn/vim-crunch'
         " surround:
         Plugin 'tpope/vim-surround'
+
+    " C# programming
+        Plugin 'OmniSharp/omnisharp-vim'
+
+    " Python programmin
+        " Plugin 'Integralist/vim-mypy'
 
     " Required by other plugins:
         Plugin 'tomtom/tlib_vim'

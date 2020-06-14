@@ -42,7 +42,8 @@
     set undodir=~/.vim/undo/
 
     set spelllang=pt_br,en_us
-    set complete=.,w,t,b,u,i,kspell,s
+    set complete=.,w,t,b,u,i,
+    " set complete=.,w,t,b,u,i,kspell,s
 
     colorscheme onedark
     " colorscheme solarized

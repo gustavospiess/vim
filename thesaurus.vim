@@ -1,7 +1,7 @@
 
-let g:thesaurus_dict = {'synonym_pt': expand('<sfile>:p:h').'\base_tep2\sinonimos.txt',
-    \'antonym_pt': expand('<sfile>:p:h').'\base_tep2\antonimos.txt',
-    \'rhyme_pt': expand('<sfile>:p:h').'\base_tep2\rimas_1.txt,'.expand('<sfile>:p:h').'\base_tep2\rimas_2.txt'}
+let g:thesaurus_dict = {'synonym_pt': expand('<sfile>:p:h').'/base_tep2/sinonimos.txt',
+    \'antonym_pt': expand('<sfile>:p:h').'/base_tep2/antonimos.txt',
+    \'rhyme_pt': expand('<sfile>:p:h').'/base_tep2/rimas_1.txt,'.expand('<sfile>:p:h').'/base_tep2/rimas_2.txt'}
 
 function! Thesaurus_completion(ArgLead, CmdLine, CursorPos)
     let l:thesaurus_list = keys(g:thesaurus_dict)

@@ -7,8 +7,12 @@ augroup tex_config
 augroup end
 
 
-    augroup tex_surrounds
-        autocmd!
-        "c create code inline block
-        autocmd FileType tex let b:surround_99 = "\\\1command: \1{\r}" 
-    augroup END
+augroup tex_surrounds
+    autocmd!
+    "c create code inline block
+    autocmd FileType tex let b:surround_99 = "\\\1command: \1{\r}" 
+    autocmd FileType tex let b:surround_34 = "``\r\"" 
+    autocmd FileType tex let b:surround_39 = "`\r'" 
+augroup END
+
+

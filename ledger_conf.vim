@@ -3,8 +3,8 @@
 
     augroup LedgerFileype
       autocmd!
-      autocmd BufEnter *.ledger set filetype=ledger
-      autocmd BufEnter *.ledger set spell
+      autocmd BufEnter *.dat set filetype=ledger
+      autocmd BufEnter *.dat set spell
     augroup END
 
 " ------------------------------------------------------------------------- "

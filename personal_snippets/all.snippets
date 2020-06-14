@@ -1,0 +1,12 @@
+
+# snippet date3m "dd/mmm/yyyy" i
+# 	`echo strftime('%d/%b/%Y')`
+# endsnippet
+
+# snippet '\=(\d+(\.\d+)?[\+\-\*\/]\d+(\.\d+)?)' "test snippet" r
+# `!p snip.rv = '=' + str(eval(match.group(1)))`
+# endsnippet
+
+# snippet '\=\s*(\d+(\.\d+)?\s*[\+\-\*\/]\s*\d+(\.\d+)?)\s*([^\d\.])' "test snippet" rA
+# `!p snip.rv = '=' + str(eval(match.group(1))) + match.group(4)`
+# endsnippet
