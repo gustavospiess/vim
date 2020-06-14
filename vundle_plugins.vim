@@ -26,6 +26,9 @@
     " Scratch:
     Plugin 'mtth/scratch.vim'
 
+    " Ctags
+    Plugin 'ludovicchabant/vim-gutentags'
+
     " Spelling:
         " pt_BR:
         Bundle 'mateusbraga/vim-spell-pt-br'
