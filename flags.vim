@@ -44,8 +44,8 @@
     set spelllang=pt_br,en_us
     set complete=.,w,t,b,u,i,kspell,s
 
-    " colorscheme onedark
-    colorscheme solarized
+    colorscheme onedark
+    " colorscheme solarized
 
     set diffopt+=iwhite
 
