@@ -33,7 +33,6 @@ source ~/.vim/scratch_conf.vim
 source ~/.vim/snipmate_conf.vim
 source ~/.vim/vimtex_conf.vim
 source ~/.vim/comment_conf.vim
-source ~/.vim/easytags_conf.vim
 source ~/.vim/netrw_conf.vim
 
 source ~/.vim/ft_config.vim

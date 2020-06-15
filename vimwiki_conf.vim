@@ -51,9 +51,9 @@
         autocmd FileType vimwiki smap <buffer> <tab> <Plug>snipMateNextOrTrigger
     augroup end
 
-    let g:temp = []
+    " let g:temp = []
     function! VimwikiAutocompleteTags(...)
-        call append(g:temp, a:000)
+        " call append(g:temp, a:000)
         retur vimwiki#tags#get_tags()
     endfunction
 
