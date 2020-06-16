@@ -7,15 +7,19 @@
     " plugin manager:
     Plugin 'VundleVim/Vundle.vim'
 
+    " Version managemente / undo
+        " Undo tree
+        Plugin 'mbbill/undotree'
+        " Git management:
+        Plugin 'tpope/vim-fugitive'
+
     " fuzzy finder
-    Plugin 'junegunn/fzf.vim'
-    Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+        " fzf
+        Plugin 'junegunn/fzf.vim'
+        Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
     " data base access:
     Plugin 'vim-scripts/dbext.vim'
-
-    " Git management:
-    Plugin 'tpope/vim-fugitive'
 
     " Matching:
     Plugin 'tmhedberg/matchit'
@@ -24,7 +28,7 @@
     Plugin 'tpope/vim-dispatch'
 
     " Scratch:
-    Plugin 'mtth/scratch.vim'
+    " Plugin 'mtth/scratch.vim'
 
     " Ctags
     Plugin 'ludovicchabant/vim-gutentags'
@@ -39,7 +43,7 @@
         " color schemas:
         Plugin 'joshdick/onedark.vim'
         " Plugin 'vim-scripts/oceanlight'
-        Plugin 'altercation/vim-colors-solarized'
+        " Plugin 'altercation/vim-colors-solarized'
 
     " Objects:
         " indentation object:
@@ -53,18 +57,18 @@
         " Wiki:
         Plugin 'vimwiki/vimwiki'
         " Calendar:
-        Plugin 'mattn/calendar-vim'
+        " Plugin 'mattn/calendar-vim'
 
     " File types:
         " Ledger:
-        Plugin 'ledger/vim-ledger'
+        " Plugin 'ledger/vim-ledger'
         " Latex:
         Plugin 'lervag/vimtex'
         " Markdown:
         Plugin 'plasticboy/vim-markdown'
         " Plant UML:
-        Plugin 'scrooloose/vim-slumlord'
-        Plugin 'aklt/plantuml-syntax'
+        " Plugin 'scrooloose/vim-slumlord'
+        " Plugin 'aklt/plantuml-syntax'
 
     " Snippets:
         " Snippet engine:
@@ -86,6 +90,10 @@
 
     " C# programming
         Plugin 'OmniSharp/omnisharp-vim'
+
+    " Java programming
+        " Plugin 'vim-scripts/javacomplete'
+        " Plugin 'artur-shaik/vim-javacomplete2'
 
     " Python programmin
         " Plugin 'Integralist/vim-mypy'
