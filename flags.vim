@@ -66,3 +66,5 @@
 "
     let g:xml_syntax_folding=1
     let g:crunch_result_type_append = 0
+
+    let g:AutoPairsFlyMode = 1

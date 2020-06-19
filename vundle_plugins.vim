@@ -23,6 +23,7 @@
 
     " Matching:
     Plugin 'tmhedberg/matchit'
+    Plugin 'jiangmiao/auto-pairs'
 
     " Tasks:
     Plugin 'tpope/vim-dispatch'
