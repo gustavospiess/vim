@@ -26,7 +26,8 @@
             try
                 write
             catch 
-                "nop
+                "if you cannot save it, hide it
+                setlocal hidden
             endtry
         endf
 
