@@ -23,6 +23,7 @@
 
     set hlsearch
     set ignorecase
+    set smartcase
 
     set formatoptions=tcq2n
 
@@ -55,7 +56,7 @@
     set wildmenu
 
     "yank and past to/from clipboard
-    set clipboard=unnamed
+    set clipboard=unnamedplus
 
     set incsearch
 
