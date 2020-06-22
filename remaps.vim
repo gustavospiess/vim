@@ -22,7 +22,7 @@
     " Buffer navigation
         nnoremap <leader>n :call Catch_save()<cr>:bnext<cr>
         nnoremap <leader>p :call Catch_save()<cr>:bprevious<cr>
-        nnoremap <leader>a :call Catch_save()<cr>:edit #<cr>
+        nnoremap <leader>a :call Catch_save()<cr>:buffer #<cr>
         nnoremap <leader>b :call Catch_save()<cr>:Buffers<cr>
         nnoremap <leader>B :call Catch_save()<cr>:buffers!<cr>:edit #
         nnoremap <leader>w :call Catch_save()<cr>:Windows<cr>
