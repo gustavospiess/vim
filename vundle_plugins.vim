@@ -17,6 +17,8 @@
         " fzf
         Plugin 'junegunn/fzf.vim'
         Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+        " rooter
+        Plugin 'airblade/vim-rooter'
 
     " data base access:
     Plugin 'vim-scripts/dbext.vim'
