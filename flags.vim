@@ -57,7 +57,7 @@
     set wildmenu
 
     "yank and past to/from clipboard
-    set clipboard=unnamedplus
+    set clipboard=autoselectplus
 
     set conceallevel=1
 
