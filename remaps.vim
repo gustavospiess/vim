@@ -10,12 +10,24 @@
     " Spell toggle
         nnoremap <leader>sp :setlocal spell!<cr>
 
+    " Change file type
+        nnoremap <leader>t :Filetypes<cr>
+
     fun! Catch_save()
         try
             write
         catch 
             "if you cannot save it, hide it
-            setlocal hidden
+            setlocal buftype=nofile
+
+            "if has no name, set name as unnamed
+            if (!len(bufname('')))
+                if (!len(&filetype))
+                    execute 'file! unnamed'
+                else
+                    execute 'file! unnamed_'.&filetype
+                endif
+            endif
         endtry
     endf
 
@@ -26,6 +38,10 @@
         nnoremap <leader>b :call Catch_save()<cr>:Buffers<cr>
         nnoremap <leader>B :call Catch_save()<cr>:buffers!<cr>:edit #
         nnoremap <leader>w :call Catch_save()<cr>:Windows<cr>
+        nnoremap <leader>d :call Catch_save()<cr>:bwipeout<cr>
+
+    " Forece to change habits
+        nnoremap <C-w>q :echo 'Utilizar çd/çn/çp/çb'<cr>
 
     " Finders
         nnoremap <leader>f :call Catch_save()<cr>:GFiles<cr>
