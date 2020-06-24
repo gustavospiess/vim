@@ -34,7 +34,7 @@
     set nocompatible
     set backup
 
-    set scrolloff=7
+    set scrolloff=14
 
     set undofile
     set undolevels=3000
@@ -57,9 +57,13 @@
     set wildmenu
 
     "yank and past to/from clipboard
-    set clipboard=autoselectplus
+    set clipboard=unnamed
 
     set conceallevel=1
+
+    set cursorline
+    set textwidth=80
+    set colorcolumn=+0,80,160
 
     filetype plugin indent on
     syntax on
