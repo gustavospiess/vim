@@ -18,16 +18,7 @@
             write
         catch 
             "if you cannot save it, hide it
-            setlocal buftype=nofile
-
-            "if has no name, set name as unnamed
-            if (!len(bufname('')))
-                if (!len(&filetype))
-                    execute 'file! unnamed'
-                else
-                    execute 'file! unnamed_'.&filetype
-                endif
-            endif
+            setlocal hidden
         endtry
     endf
 
@@ -36,7 +27,7 @@
         nnoremap <leader>p :call Catch_save()<cr>:bprevious<cr>
         nnoremap <leader>a :call Catch_save()<cr>:buffer #<cr>
         nnoremap <leader>b :call Catch_save()<cr>:Buffers<cr>
-        nnoremap <leader>B :call Catch_save()<cr>:buffers!<cr>:edit #
+        nnoremap <leader>B :call Catch_save()<cr>:buffers!<cr>:buffer #
         nnoremap <leader>w :call Catch_save()<cr>:Windows<cr>
         nnoremap <leader>d :call Catch_save()<cr>:bwipeout<cr>
 
@@ -54,6 +45,12 @@
     " Undo tree
         nnoremap <leader>u :UndotreeToggle<cr>:UndotreeFocus<cr>
         nnoremap <leader>U :UndotreeToggle<cr>
+
+    " Quickfix
+        nnoremap <leader>qq :copen<cr>
+        nnoremap <leader>qQ :cclose<cr>
+        nnoremap <leader>qn :cnext<cr>
+        nnoremap <leader>qp :cprevious<cr>
     
     " File explorer
         nnoremap <leader>e :Vex<cr>

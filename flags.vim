@@ -5,7 +5,7 @@
 
     set report=0
 
-    set wrap
+    set nowrap
     set linebreak
     set breakindent
     set showbreak=\ \ \ \ 
@@ -125,5 +125,21 @@
                 \'css': 'css'}
     let g:vimwiki_list = [wiki]
     let g:vimwiki_folding = 'syntax'
+
+" ------------------------------------------------------------------------- "
+
+"                                FZF settings
+
+    function! s:build_quickfix_list(lines)
+        call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+        copen
+        cc
+    endfunction
+
+    let g:fzf_action = {
+        \ 'ctrl-q': function('s:build_quickfix_list'),
+        \ 'ctrl-t': 'tab split',
+        \ 'ctrl-x': 'split',
+        \ 'ctrl-v': 'vsplit' }
 
 " ------------------------------------------------------------------------- "
