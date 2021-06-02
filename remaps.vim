@@ -65,4 +65,8 @@
         tnoremap <C-W>l <C-\><C-N><C-w>l
     endif
 
+    nnoremap <leader>] <C-]>
+    nnoremap <C-\> <C-]>
+    nnoremap <C-]> <C-]>
+
 " ------------------------------------------------------------------------- "

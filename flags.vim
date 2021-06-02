@@ -75,12 +75,13 @@
 " ------------------------------------------------------------------------- "
 "                           inline calculator conf
 
-    let g:crunch_result_type_append = 0
+    let g:crunch_result_type_append = 1
 
 " ------------------------------------------------------------------------- "
 "                          Auto pair on insert conf
 
     let g:AutoPairsFlyMode = 1
+    let g:AutoPairsShortcutBackInsert = '<M-0>'
 
 " ------------------------------------------------------------------------- "
 "                                  netrw conf
@@ -129,6 +130,24 @@
                 \'css': 'css'}
     let g:vimwiki_list = [wiki]
     let g:vimwiki_folding = 'syntax'
+
+    augroup snipmatScape
+        autocmd!
+        autocmd FileType vimwiki imap <buffer> <tab> <Plug>snipMateNextOrTrigger
+        autocmd FileType vimwiki smap <buffer> <tab> <Plug>snipMateNextOrTrigger
+    augroup end
+
+    function! GetHora()
+        return strftime("%H")+0
+    endfunction!
+
+    function! Ternario(cond, st, nd)
+        if a:cond
+            return a:st
+        else
+            return a:nd
+        endif
+    endfunction
 
 " ------------------------------------------------------------------------- "
 

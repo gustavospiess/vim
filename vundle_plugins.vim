@@ -34,7 +34,7 @@
     " Plugin 'mtth/scratch.vim'
 
     " Ctags
-    Plugin 'ludovicchabant/vim-gutentags'
+    " Plugin 'ludovicchabant/vim-gutentags'
 
     " Spelling:
         " pt_BR:
@@ -75,10 +75,9 @@
 
     " Snippets:
         " Snippet engine:
-        " Plugin 'MarcWeber/vim-addon-mw-utils'
-        Plugin 'SirVer/ultisnips'
+        Plugin 'garbas/vim-snipmate'
+        " Plugin 'SirVer/ultisnips'
         " Snippet base:
-        " Plugin 'garbas/vim-snipmate'
         Plugin 'honza/vim-snippets'
 
     " Pending operator actions:
@@ -92,7 +91,7 @@
         Plugin 'tpope/vim-surround'
 
     " C# programming
-        Plugin 'OmniSharp/omnisharp-vim'
+        " Plugin 'OmniSharp/omnisharp-vim'
 
     " Java programming
         " Plugin 'vim-scripts/javacomplete'
@@ -108,6 +107,7 @@
         Plugin 'xolox/vim-misc'
         Plugin 'arecarn/vim-selection'
         Plugin 'godlygeek/tabular'
+        Plugin 'MarcWeber/vim-addon-mw-utils'
 
     call vundle#end()
 " ------------------------------------------------------------------------- "
